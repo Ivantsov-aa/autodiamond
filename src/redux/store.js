@@ -37,8 +37,9 @@ let store = {
     ],
     catalog: [
         {
+            logo: './images/brand-logo/chery-logo.svg',
             name: 'Chery',
-            model: [
+            models: [
                 'Amulet',
                 'Bonus',
                 'Cross',
@@ -53,8 +54,9 @@ let store = {
             ]
         },
         {
+            logo: './images/brand-logo/geely-logo.svg',
             name: 'Geely',
-            model: [
+            models: [
                 'Atlas',
                 'Emgrand 7',
                 'Emgrand GT',
@@ -68,8 +70,9 @@ let store = {
             ]
         },
         {
+            logo: './images/brand-logo/great-wall-logo.svg',
             name: 'Great Wall',
-            model: [
+            models: [
                 'Coolbear',
                 'Cowry',
                 'Deer',
@@ -83,12 +86,14 @@ let store = {
             ]
         },
         {
+            logo: './images/brand-logo/lifan-logo.svg',
             name: 'Lifan',
-            model: [
+            models: [
                 'Breez',
                 'Cebrium',
                 'Celliya',
                 'Murman',
+                'Myway',
                 'Smily',
                 'Solano',
                 'X50',
@@ -97,35 +102,37 @@ let store = {
             ]
         },
         {
+            logo: './images/brand-logo/vortex-logo.svg',
             name: 'Vortex',
-            model: [
+            models: [
                 'Estina'
             ]
         },
         {
+            logo: './images/brand-logo/byd-logo.svg',
             name: 'BYD',
-            model: [
+            models: [
                 'F0',
                 'F3',
                 'F3R'
             ]
         },
         {
+            logo: './images/brand-logo/changan-logo.svg',
             name: 'Changan',
-            model: [
+            models: [
                 'CS35',
                 'Eado'
             ]
         },
         {
-            name: 'HAVAL',
-            model: [
-                ''
-            ]
+            logo: './images/brand-logo/haval-logo.svg',
+            name: 'HAVAL'
         },
         {
+            logo: './images/brand-logo/faw-logo.svg',
             name: 'FAW',
-            model: [
+            models: [
                 'Besturn B50',
                 'V2',
                 'V5'
@@ -135,17 +142,17 @@ let store = {
     products: [
         {
             image: './images/default-icon-product.svg',
-            name: 'Петля для копота 1',
+            name: 'Петля для капота 1',
             brand: 'Geely Coolray'
         },
         {
             image: './images/default-icon-product.svg',
-            name: 'Петля для копота 2',
+            name: 'Петля для капота 2',
             brand: 'Geely Coolray'
         },
         {
             image: './images/default-icon-product.svg',
-            name: 'Петля для копота 3',
+            name: 'Петля для капота 3',
             brand: 'Geely Coolray'
         }
     ],

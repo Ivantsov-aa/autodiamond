@@ -25,7 +25,7 @@ class Main extends React.Component {
 
         return (
             <main>
-                <SearchForm catalog={this.props.catalog} />
+                <SearchForm {...this.props} />
                 <section className='main__service-wrapper'>
                     <div className='main__service'>
                         <div className='service__description'>

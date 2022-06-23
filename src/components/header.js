@@ -8,7 +8,7 @@ class Header extends React.Component {
             <header>
                 <div className='header__wrapper'>
                     <nav>
-                        <img src='./images/logo.svg' alt='logo' />
+                        <Link to='/'><img src='./images/logo.svg' alt='logo' /></Link>
                         <ul>
                             {headerNav.map((item, i) => (
                                 <Link to={item.path} key={i}><li>{item.name}</li></Link>

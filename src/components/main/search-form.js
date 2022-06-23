@@ -36,8 +36,8 @@ class SearchForm extends React.Component {
                             <select>
                                 <option>Модель</option>
                                 {catalog.map(brand => chosenBrand === brand.name ?
-                                    brand.model.map((mod, i) => (
-                                        <option key={i}>{mod}</option>
+                                    brand.models.map((model, i) => (
+                                        <option key={i}>{model}</option>
                                     ))
                                     :
                                     ''
