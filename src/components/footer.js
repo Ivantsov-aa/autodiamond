@@ -75,7 +75,7 @@ class Footer extends React.Component {
                                 <p className='mail'>AutoDiamond@mail.ru</p>
                                 <p className='phone-number'>+7 8442 600 3890</p>
                             </div>
-                            <img src='./images/logo.svg' alt='logo' />
+                            <img src='/images/logo.svg' alt='logo' />
                         </section>
                     </div>
                 </div>

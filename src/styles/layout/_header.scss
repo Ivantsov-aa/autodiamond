@@ -28,7 +28,10 @@ header {
         }
 
         .header_buttons {
-            button {
+            display: flex;
+
+            >a,
+            >button {
                 &::before {
                     content: '';
                     display: inline-block;
@@ -49,9 +52,24 @@ header {
                 &.cart_button {
                     color: #FF0000;
                     margin-left: 64px;
+
                     &::before {
                         background-image: url('../../../public/images/cart-logo.svg');
                     }
+                }
+            }
+
+            .authorization_menu {
+                position: absolute;
+                top: 138px;
+                background-color: #fcc27b;
+                border: 1px #000 solid;
+
+                a,
+                button {
+                    display: block;
+                    padding: 15px;
+                    @include font-params (400, 20px, 24px);
                 }
             }
         }
