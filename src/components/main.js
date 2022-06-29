@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import SearchForm from "./main/search-form";
@@ -149,12 +150,12 @@ class Main extends React.Component {
                     </h3>
                     <Slider {...settingsForNews}>
                         {news.map((item, i) => (
-                            <div className='news-item' key={i}>
+                            <Link to={`/news/${item.path}`} className='news-item' key={i}>
                                 <img src={item.logo} alt='news-logo' />
                                 <h4>{item.title}</h4>
                                 <p className='news-date'>{item.date}</p>
                                 <p>{item.article}</p>
-                            </div>
+                            </Link>
                         ))}
                     </Slider>
                 </section>

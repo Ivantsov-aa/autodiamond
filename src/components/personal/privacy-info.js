@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
-import InputMask from "react-input-mask";
+import { useForm } from "react-hook-form";
 
 import Header from "../header";
 import Footer from "../footer";
@@ -11,8 +10,7 @@ const PrivacyInfo = ({ headerNav, footerNav, isLogged, authUser, handleLogOut, h
 
     const {
         register,
-        handleSubmit,
-        control
+        handleSubmit
     } = useForm({
         mode: 'onSubmit'
     });
@@ -23,19 +21,7 @@ const PrivacyInfo = ({ headerNav, footerNav, isLogged, authUser, handleLogOut, h
 
 
     const onSubmit = (data) => {
-        console.log(data);
-        if (data.photo.length > 0) {
-            const reader = new FileReader();
-            reader.readAsDataURL(data.photo[0]);
-
-            reader.onload = () => {
-                const urlPhoto = reader.result;
-                handleNewPersonalInfo({ ...data, urlPhoto: urlPhoto });
-            }
-
-        } else {
-            handleNewPersonalInfo(data)
-        }
+        handleNewPersonalInfo(data)
         openEditor(false);
     }
 
@@ -53,30 +39,21 @@ const PrivacyInfo = ({ headerNav, footerNav, isLogged, authUser, handleLogOut, h
                 {
                     !stateEditor ?
                         <div className='personal_info'>
-                            <div className='photo'>
-                                <img src={authUser.urlPhoto ? authUser.urlPhoto : '/images/default-icon-product.svg'} alt='user' />
-                            </div>
                             <div className='about_person'>
                                 <div className='person_name'>
-                                    <div>
-                                        {authUser.firstName && authUser.lastName ? <p>{authUser.firstName} <span>{authUser.lastName}</span></p> : <p>Как Вас зовут?</p>}
-                                        {authUser.address ? <p>Адрес: <span>{authUser.address}</span></p> : <p>Адрес: Неизвестно</p>}
-                                    </div>
+                                    {authUser.firstName && authUser.lastName ? <p>{authUser.firstName} <span>{authUser.lastName}</span></p> : <p>Как Вас зовут?</p>}
+                                    {authUser.address ? <p>Адрес: <span>{authUser.address}</span></p> : <p>Адрес: Неизвестно</p>}
                                     <button onClick={handleOpenEditor}></button>
-                                </div>
-                                <div className='contacts'>
                                     {authUser.phone ? <p>Телефон: <span>{authUser.phone}</span></p> : <p>Телефон: <span>Неизвестно</span></p>}
                                     <p>
                                         Электронная почта: <span>{authUser.mail}</span>
                                     </p>
                                 </div>
+
                             </div>
                         </div>
                         :
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <label className='upload_photo'>
-                                <input type='file' {...register('photo')} accept='image/*' />
-                            </label>
                             <div className='edit__about_person'>
                                 <div>
                                     <label>
@@ -105,35 +82,11 @@ const PrivacyInfo = ({ headerNav, footerNav, isLogged, authUser, handleLogOut, h
                                     </label>
                                     <label>
                                         Телефон:
-                                        {/* <InputMask
-                                            mask={'+{7} 000 000 00 00'}
-                                        >
-                                            <input
-                                                type='tel'
-                                                defaultValue={authUser.phone ? authUser.phone : ''}
-                                                {...register('phone')}
-                                            />
-                                        </InputMask> */}
-                                        {/* <Controller
-                                            control={control}
-                                            mask='+{7} 000 000 00 00'
-                                            name='phone'
-                                            render={({ field }) => ( */}
-                                        <InputMask
-                                            mask={'+{7} 000 000 00 00'}
-                                            onChange={e => console.log(e)}
-                                        >
-                                            {(inputProps) => (
-                                                <input
-                                                    {...inputProps}
-                                                    type='tel'
-                                                    defaultValue={authUser.phone ? authUser.phone : ''}
-                                                    {...register('phone')}
-                                                />
-                                            )}
-                                        </InputMask>
-                                        {/* )} */}
-                                        {/* /> */}
+                                        <input
+                                            type='tel'
+                                            defaultValue={authUser.phone ? authUser.phone : ''}
+                                            {...register('phone')}
+                                        />
                                     </label>
                                     <label>
                                         Электронная почта:

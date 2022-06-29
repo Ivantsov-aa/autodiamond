@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { isLogged, authUser, redirect } = this.state;
+    const { isLogged, authUser } = this.state;
 
     return (
       <div className='wrapper'>
