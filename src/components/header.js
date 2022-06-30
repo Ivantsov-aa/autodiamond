@@ -5,7 +5,8 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            authMenu: false
+            authMenu: false,
+            openTabPath: ''
         }
     }
 
@@ -13,8 +14,18 @@ class Header extends React.Component {
         this.setState({ authMenu: !this.state.authMenu });
     }
 
+    handleSelectedTab = (e) => {
+        const {value} = e.currentTarget.dataset;
+        this.props.headerNav.map(nav => {
+            if (value === nav.path) {
+                this.setState({openTabPath: value})
+            }
+            return nav;
+        })
+    }
+
     render() {
-        const { authMenu } = this.state;
+        const { authMenu, openTabPath } = this.state;
         const { headerNav, isLogged, authUser, handleLogOut } = this.props;
         return (
             <header>
@@ -23,7 +34,7 @@ class Header extends React.Component {
                         <Link to='/'><img src='/images/logo.svg' alt='logo' /></Link>
                         <ul>
                             {headerNav.map((item, i) => (
-                                <Link to={item.path} key={i}><li>{item.name}</li></Link>
+                                <Link to={item.path} data-value={item.path} className={openTabPath === item.path ? 'active' : ''} onClick={this.handleSelectedTab} key={i}><li>{item.name}</li></Link>
                             ))}
                         </ul>
                     </nav>

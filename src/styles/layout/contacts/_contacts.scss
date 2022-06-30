@@ -1,6 +1,6 @@
 .contacts {
-    @include block-pos;
-    padding: 10px 0 70px;
+    @include block-pos; 
+    padding-bottom: 70px;
 
     h2 {
         margin-bottom: 10px;

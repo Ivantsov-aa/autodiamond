@@ -7,22 +7,30 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 14px 0 15px;
         @include font-params (400, 24px, 29px);
 
         nav {
             display: flex;
             align-items: center;
+            height: 132px;
 
-            img {
-                margin-right: 60px;
+            >a {
+                margin-right: 49px;
             }
 
             ul {
                 display: flex;
+                height: 100%;
 
-                li {
-                    margin-right: 65px;
+                a {
+                    padding: 51px 10px 52px;
+                    margin-right: 46px;
+                    display: block;
+                    height: 100%;
+
+                    &.active {
+                        border-bottom: 3px solid #000;
+                    }
                 }
             }
         }
@@ -75,4 +83,61 @@ header {
         }
     }
 
+}
+
+@media only screen and (max-width: 1919px) and (min-width: 1024px) {
+    header {
+        margin-bottom: 13px;
+
+        .header__wrapper {
+            @include block-pos-laptop;
+            @include font-params (400, 16px, 19px);
+
+            nav {
+                height: 78px;
+                img {
+                    margin-right: 35px;
+                    width: 79px;
+                    height: 58px;
+                }
+
+                ul {
+
+                    a {
+                        padding: 30px 5px;
+                        margin-right: 19px;
+                    }
+                }
+            }
+
+            .header_buttons {
+
+                >a,
+                >button {
+                    @include font-params (400, 16px, 19px);
+
+                    &::before {
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 20px;
+                        background-size: 30px;
+                    }
+
+                    &.cart_button {
+                        margin-left: 25px;
+                    }
+                }
+
+                .authorization_menu {
+                    top: 78px;
+
+                    a,
+                    button {
+                        padding: 10px;
+                        @include font-params (400, 16px, 19px);
+                    }
+                }
+            }
+        }
+    }
 }

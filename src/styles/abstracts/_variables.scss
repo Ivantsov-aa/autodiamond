@@ -5,6 +5,11 @@ $link_color: #000;
     margin: auto;
 }
 
+@mixin block-pos-laptop {
+    max-width: 924px;
+    margin: auto;
+}
+
 @mixin font-params ($weight, $size, $line-height) {
     font-weight: $weight;
     font-size: $size; 
