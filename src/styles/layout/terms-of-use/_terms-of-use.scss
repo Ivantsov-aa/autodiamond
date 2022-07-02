@@ -61,3 +61,45 @@
     }
 
 }
+
+@media only screen and (max-width: 1919px) and (min-width: 1024px) {
+
+    .terms-of-use__wrapper {
+        @include block-pos-laptop;
+        margin-bottom: 40px;
+
+        .title {
+            grid-template-columns: 180px 400px;
+            grid-column-gap: 78px;
+
+            h2,
+            p {
+                @include font-params (400, 22px, 27px);
+                margin-bottom: 30px;
+            }
+        }
+
+        .terms {
+            grid-gap: 19px 35px;
+            grid-template-columns: 452px 453px;
+            margin-bottom: 40px;
+
+            p {
+                @include font-params (400, 22px, 27px);
+
+                &:first-child {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        .buttons {
+            button {
+                margin: 0 20px;
+                @include font-params (500, 22px, 27px);
+                width: 270px;
+                padding: 16px 0;
+            }
+        }
+    }
+}

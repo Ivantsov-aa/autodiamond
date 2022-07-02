@@ -4,7 +4,6 @@ const NewsPage = ({ news }) => {
     const location = useLocation();
     const currentLocation = location.pathname.substring(6);
 
-
     return (
         <section className='news'>
             {news.map((article, i) => {

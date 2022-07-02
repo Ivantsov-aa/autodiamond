@@ -2,6 +2,29 @@ import React from "react";
 import { YMaps, Map, Clusterer, Placemark } from "react-yandex-maps";
 
 class Contacts extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            allStores: [],
+        }
+    }
+
+    componentDidMount() {
+        this.setState({ allStores: this.props.stores });
+    }
+
+    handleCityClick = e => {
+        const { value } = e.target.dataset;
+        const stores = this.state.allStores.map(store => {
+            if (store.value === value) {
+                return { ...store, selected: !store.selected };
+            } else {
+                return { ...store, selected: false }
+            }
+        })
+        this.setState({ allStores: stores });
+
+    }
 
     render() {
         const mapSettings = {
@@ -9,88 +32,58 @@ class Contacts extends React.Component {
             zoom: 7
         };
 
-        const { stores } = this.props;
-
-        const storesVolgograd = stores.filter(store => store.city === 'Волгоград');
-        const storesVolojskiy = stores.filter(store => store.city === 'Воложский');
-        const storesAstrahan = stores.filter(store => store.city === 'Астрахань');
-        const storesRostov = stores.filter(store => store.city === 'Ростов');
+        const { allStores } = this.state;
 
         return (
             <section className='contacts'>
-                <div>
-                    <h2>г. Волгоград</h2>
-                    <div className='contacts-wrapper'>
-                        {storesVolgograd.map((store, i) => (
-                            <div key={i}>
-                                <p>{store.title}</p>
-                                <p>{store.phone}</p>
+                <div className='contacts-wrapper'>
+                    {allStores.map((store, i) => (
+                        <button className={store.selected ? 'active' : ''} onClick={this.handleCityClick} data-value={store.value} key={i}>г. {store.city}</button>
+                    ))}
+                </div>
+                {allStores.map(store => (
+                    store.selected &&
+                    <div className='addresses-wrapper'>
+                        {store.shops.map((shop, i) => (
+                            <div className='addresses' key={i}>
+                                <p>{shop.title}</p>
+                                <p>{shop.phone}</p>
                             </div>
                         ))}
                     </div>
+                ))}
+
+                <div className='map'>
+                    <YMaps>
+                        <Map state={mapSettings} width='100%' height='100%'>
+                            <Clusterer
+                                options={{
+                                    preset: 'islands#invertedVioletClusterIcons',
+                                    groupByCoordinates: false
+                                }}
+                            >
+                                {allStores.map(store => (
+                                    store.shops.map((shop, i) => (
+                                        <Placemark
+                                            key={i}
+                                            geometry={shop.coords}
+                                            modules={[
+                                                "geoObject.addon.balloon"
+                                            ]}
+                                            properties={{
+                                                balloonContent: `
+                                                    <h2>${store.city}</h2>
+                                                    <h3>${shop.title}</h3>
+                                                    <p>${shop.phone}</p>
+                                                `
+                                            }}
+                                        />
+                                    ))
+                                ))}
+                            </Clusterer>
+                        </Map>
+                    </YMaps>
                 </div>
-                <div className='contacts-footer'>
-                    <div>
-                        <h2>г. Воложский</h2>
-                        <div className='contacts-wrapper'>
-                            {storesVolojskiy.map((store, i) => (
-                                <div key={i}>
-                                    <p>{store.title}</p>
-                                    <p>Телефон: {store.phone}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <h2>г. Астрахань</h2>
-                        <div className='contacts-wrapper'>
-                            {storesAstrahan.map((store, i) => (
-                                <div key={i}>
-                                    <p>{store.title}</p>
-                                    <p>{store.phone}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div>
-                        <h2>г. Ростов - на - Дону</h2>
-                        <div className='contacts-wrapper'>
-                            {storesRostov.map((store, i) => (
-                                <div key={i}>
-                                    <p>{store.title}</p>
-                                    <p>{store.phone}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <YMaps>
-                    <Map defaultState={mapSettings} width='1710px' height='638px'>
-                        <Clusterer
-                            options={{
-                                preset: 'islands#invertedVioletClusterIcons',
-                                groupByCoordinates: false
-                            }}
-                        >
-                            {stores.map((store, i) => (
-                                <Placemark
-                                    key={i}
-                                    geometry={store.coords}
-                                    modules={[
-                                        "geoObject.addon.balloon"
-                                    ]}
-                                    properties={{
-                                        balloonContent: `
-                                            <h2>${store.city}</h2>
-                                            <h3>${store.title}</h3>
-                                            <p>${store.phone}</p>
-                                        `
-                                    }}
-                                />
-                            ))}
-                        </Clusterer>
-                    </Map>
-                </YMaps>
             </section>
         )
     }

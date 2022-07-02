@@ -64,7 +64,8 @@
                     button {
                         border: 1px solid #F98600;
                         border-radius: 5px;
-                        padding: 11px 31px 10px 32px;
+                        padding: 11px 0;
+                        width: 169px;
                     }
                 }
 
@@ -197,7 +198,7 @@
                             width: 145px;
                             height: 43px;
                             @include font-params(400, 20px, 24px);
-                            padding: 10px 28px 9px;
+                            padding: 10px 0;
                         }
                     }
                 }
@@ -237,6 +238,141 @@
                 }
             }
 
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 280px) {
+    .main__service-wrapper {
+        .main__service {
+            display: flex;
+            @include block-pos-mobile;
+            justify-content: space-between;
+            flex-direction: column;
+
+            h1 {
+                padding-top: 15px;
+                @include font-params(700, 16px, 19px);
+                margin-bottom: 10px;
+            }
+
+            li {
+                @include font-params(600, 14px, 17px);
+                margin-bottom: 10px;
+
+                &::before {
+                    background-size: 15px;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    background-position-y: 0;
+                }
+            }
+
+        }
+
+        .order-product {
+            color: $link_color;
+            z-index: 3;
+            padding: 5px 0 24px;
+            align-self: flex-end;
+
+            .slick-slider {
+                width: 150px;
+                height: 126px;
+
+                .product-cart {
+                    background-color: #fff;
+                    height: 126px;
+                    display: flex;
+                    padding: 5px;
+
+                    .product-cart__info {
+                        align-self: flex-start;
+                        width: 71px;
+
+                        h3 {
+                            @include font-params (500, 14px, 17px);
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            @include font-params (400, 12px, 15px);
+                            margin-bottom: 13px;
+                        }
+
+                        button {
+                            padding: 2.5px 0;
+                            width: 101px;
+                            @include font-params(400, 16px, 19px);
+                            transform: translateX(-12px);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        .main-bg {
+            height: 253px;
+            width: 109px;
+        }
+    }
+
+
+    .slick-slider {
+
+        .slick-arrow {
+            width: 62px;
+            height: 26px;
+            top: 87px;
+
+            &.slick-prev {
+                left: -30px;
+                transform: translateY(0);
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 26px;
+                    height: 26px;
+                    background: url('../../../../public/images/arrow-prev.svg') no-repeat center;
+                    padding-left: 10px;
+                    background-size: 16px;
+                }
+            }
+
+            &.slick-next {
+                left: 0;
+                width: 32px;
+                transform: translateY(0);
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 44px;
+                    height: 26px;
+                    background: url('../../../../public/images/arrow-next.svg') no-repeat center;
+                    padding-right: 5px;
+                    background-size: 5px;
+                }
+            }
+
+        }
+    }
+
+    .img-wrapper {
+        padding: 6px;
+        height: 45px;
+        width: 45px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        margin-right: 6px;
+        transform: translateY(4px);
+
+        img {
+            height: 30px;
+            width: 30px;
         }
     }
 }

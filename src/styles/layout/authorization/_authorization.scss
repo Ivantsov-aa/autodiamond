@@ -3,16 +3,15 @@
     margin: auto;
     display: grid;
     grid-template-columns: 1009px 911px;
-    grid-template-rows: 1080px;
     overflow-x: hidden;
 
     .authorization__img {
         background: url('../../../../public/images/authorization-image.png') no-repeat center;
-        padding: 90px 48px;
+        background-size: cover;
+        padding: 90px 48px 768px;
 
         img {
             width: 295px;
-            height: 219px;
         }
     }
 
@@ -142,4 +141,101 @@
         }
     }
 
+}
+
+@media only screen and (max-width: 1919px) and (min-width: 1024px) {
+    .authorization__wrapper {
+        max-width: 1024px;
+        grid-template-columns: 496px 528px;
+
+        .authorization__img {
+            background-size: cover;
+            padding: 53px 13px 410px;
+
+            img {
+                width: 148px;
+            }
+        }
+
+        .authorization-form__wrapper {
+            padding: 28px 50px 0 30px;
+
+            .authorization__toggle {
+                margin-bottom: 15px;
+
+                a {
+                    @include font-params (700, 22px, 27px);
+                    margin-right: 50px;
+                    padding: 5px 13px;
+                }
+            }
+
+
+            .registration-form {
+                padding-bottom: 115px;
+            }
+
+            .authorization-form,
+            .registration-form {
+                label {
+                    @include font-params (400, 22px, 27px);
+                    
+                    input {
+                        margin-top: 10px;
+                        width: 432px;
+                        padding: 11px 12px;
+                        @include font-params (400, 22px, 27px);
+
+                        &::placeholder {
+                            color: $link_color;
+                        }
+                    }
+
+                    &.password {
+                        p {
+                            width: 30px;
+                            height: 28px;
+                            top: 50px;
+                            right: 25px;
+                            background-size: cover;
+
+                            &.active {
+                                background-size: cover;
+                            }
+                        }
+                    }
+                }
+
+                .error-message {
+                    @include font-params (400, 14px, 20px);
+                }
+
+                .remember,
+                .apply-agreement {
+                    margin-bottom: 30px;
+
+                    label {
+                        @include font-params (400, 16px, 19px);
+
+                        input {
+                            margin-right: 15px;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    button {
+                        @include font-params (400, 16px, 19px);
+                    }
+                }
+
+                input[type=submit] {
+                    width: 179px;
+                    height: 58px;
+                    @include font-params (500, 22px, 27px);
+                }
+            }
+        }
+
+    }
 }
