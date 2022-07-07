@@ -6,7 +6,6 @@ class Header extends React.Component {
         super(props);
         this.state = {
             authMenu: false,
-            openTabPath: '',
             stateHamburgerMenu: false
         }
     }
@@ -15,23 +14,18 @@ class Header extends React.Component {
         this.setState({ authMenu: !this.state.authMenu });
     }
 
-    handleSelectedTab = (e) => {
-        const { value } = e.currentTarget.dataset;
-        this.props.headerNav.map(nav => {
-            if (value === nav.path) {
-                this.setState({ openTabPath: value })
-            }
-            return nav;
-        })
-    }
-
     handleHamburgerButtonClick = () => {
         this.setState({ stateHamburgerMenu: !this.state.stateHamburgerMenu });
     }
 
+    handleNavClick = () => {
+        this.setState({ stateHamburgerMenu: false });
+    }
+
     render() {
-        const { authMenu, openTabPath, stateHamburgerMenu } = this.state;
-        const { headerNav, isLogged, authUser, handleLogOut } = this.props;
+        const { authMenu, stateHamburgerMenu } = this.state;
+        const { headerNav, isLogged, authUser, handleLogOut, location } = this.props;
+
         return (
             <header>
                 <div className='header__wrapper'>
@@ -47,7 +41,14 @@ class Header extends React.Component {
                         <nav>
                             <ul>
                                 {headerNav.map((item, i) => (
-                                    <Link to={item.path} data-value={item.path} className={openTabPath === item.path ? 'active' : ''} onClick={this.handleSelectedTab} key={i}><li>{item.name}</li></Link>
+                                    <Link
+                                        to={item.path}
+                                        className={location && location.pathname.includes(item.path) ? 'active' : ''}
+                                        onClick={this.handleNavClick}
+                                        key={i}
+                                    >
+                                        <li>{item.name}</li>
+                                    </Link>
                                 ))}
                             </ul>
                         </nav>

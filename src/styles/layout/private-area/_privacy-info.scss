@@ -69,6 +69,10 @@
                             font-weight: 700;
                         }
                     }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
                 }
 
             }
@@ -87,7 +91,7 @@
 
         button {
             position: absolute;
-            left: 50%;
+            left: 74%;
             transform: translateY(-10px);
             width: 64px;
             height: 64px;
@@ -135,6 +139,7 @@
                 background-color: #F98600;
                 border-radius: 5px;
                 outline: none;
+                cursor: pointer;
             }
 
         }
@@ -228,6 +233,128 @@
                     width: 316px;
                     height: 58px;
                     @include font-params (500, 22px, 27px);
+                }
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 280px) {
+    .personal_area {
+        @include block-pos-mobile;
+        flex-direction: column;
+        height: 100%;
+        padding: 0 0 20px;
+
+        nav {
+            margin-right: 0;
+            max-width: 330px;
+
+            a {
+                @include font-params (400, 16px, 19px);
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+
+                &::before {
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 15px;
+                }
+
+                &.private::before {
+                    background-size: 30px;
+                }
+
+                &.orders::before {
+                    background-size: 30px;
+                }
+
+                &.agreement::before {
+                    background-size: 30px;
+                }
+
+            }
+        }
+
+        .personal_info {
+            display: flex;
+
+            p {
+                @include font-params (500, 16px, 19px);
+                margin-bottom: 10px;
+
+                span {
+                    font-weight: 400;
+                }
+            }
+
+
+            .about_person {
+                .person_name {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 0;
+
+                    p {
+                        &:first-child {
+                            font-weight: 700;
+
+                            span {
+                                font-weight: 700;
+                            }
+                        }
+                    }
+
+                }
+
+                .contacts {
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            button {
+                position: absolute;
+                left: 66%;
+                transform: translateY(-3px);
+                width: 30px;
+                height: 30px;
+                background-size: 30px;
+            }
+        }
+
+        form {
+            .edit__about_person {
+                div {
+                    label {
+                        @include font-params (500, 16px, 19px);
+                        margin-bottom: 10px;
+
+                        &:last-child {
+                            margin-bottom: 20px;
+                        }
+
+                        input {
+                            margin-top: 10px;
+                            @include font-params (500, 14px, 17px);
+                            width: 330px;
+                            padding: 10px;
+                        }
+                    }
+                }
+
+                >input {
+                    align-self: center;
+                    width: 227px;
+                    height: 48px;
+                    @include font-params (500, 16px, 19px);
                 }
 
             }

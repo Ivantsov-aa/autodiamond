@@ -2,17 +2,17 @@ $link_color: #000;
 
 @mixin block-pos {
     max-width: 1710px;
-    margin: auto;
+    margin: 0 auto auto;
 }
 
 @mixin block-pos-laptop {
     max-width: 924px;
-    margin: auto;
+    margin: 0 auto auto;
 }
 
 @mixin block-pos-mobile {
     max-width: 330px;
-    margin: auto;
+    margin: 0 auto auto;
 }
 
 @mixin font-params ($weight, $size, $line-height) {

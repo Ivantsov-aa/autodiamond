@@ -173,7 +173,7 @@
             margin-bottom: 15px;
 
             &:first-child {
-                width: 599px;
+                width: 330px;
                 text-align: start;
                 padding-top: 0;
 
@@ -213,7 +213,7 @@
             justify-content: space-around;
             background-color: #fff;
             padding: 0;
-            max-width: 330px;
+            @include block-pos-mobile;
             padding: 14px 0;
 
             div {

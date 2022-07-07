@@ -14,10 +14,10 @@ import NewsPage from "./components/news/news";
 
 class Wrapper extends React.Component {
     render() {
-        const { headerNav, stores, footerNav, isLogged, authUser, news, handleLogOut } = this.props;
+        const { headerNav, stores, footerNav, isLogged, authUser, news, handleLogOut, location } = this.props;
         return (
             <>
-                <Header headerNav={headerNav} isLogged={isLogged} authUser={authUser} handleLogOut={handleLogOut} />
+                <Header headerNav={headerNav} isLogged={isLogged} authUser={authUser} handleLogOut={handleLogOut} location={location} />
                 <Routes>
                     <Route path='/' element={<Main {...this.props} />}></Route>
                     <Route path='/catalog' element={<Catalog {...this.props} setChosenBrand={this.setChosenBrand} />} />

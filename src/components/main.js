@@ -5,10 +5,24 @@ import Slider from "react-slick";
 import SearchForm from "./main/search-form";
 
 class Main extends React.Component {
-    render() {
-        const { popularProducts, news } = this.props;
+    constructor(props) {
+        super(props);
+        this.state = {
+            innerWidth: window.innerWidth
+        }
+    }
 
-        const { innerWidth } = window;
+    componentDidMount() {
+        window.addEventListener('resize', this.updateWindowWidth)
+    }
+
+    updateWindowWidth = () => {
+        this.setState({ innerWidth: window.innerWidth });
+    }
+
+    render() {
+        const { innerWidth } = this.state;
+        const { popularProducts, news } = this.props;
 
         const settingsForService = {
             dots: false,

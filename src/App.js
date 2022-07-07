@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, {useState} from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import Wrapper from "./wrapper";
 import AuthorizationContainer from "./components/authorization/authorization-container";
@@ -8,26 +8,24 @@ import PrivacyInfo from "./components/personal/privacy-info";
 import Orders from "./components/personal/orders";
 import TermsService from "./components/personal/terms-service";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLogged: null,
-      authUser: null
-    }
+const App = (props) => {
+  const [isLogged, changeLogged] = useState(null);
+  const [authUser, setAuthUser] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogIn = (data) => {
+    changeLogged(true);
+    setAuthUser(data);
   }
 
-  handleLogIn = (data) => {
-    this.setState({ isLogged: true, authUser: data });
+  const handleLogOut = () => {
+    changeLogged(false);
+    setAuthUser(null);
+    navigate('/');
   }
 
-  handleLogOut = () => {
-    this.setState({ isLogged: false, authUser: null });
-    <Navigate to='/' replace />
-  }
-
-  handleNewPersonalInfo = (data) => {
-    const { authUser } = this.state;
+  const handleNewPersonalInfo = (data) => {
     const addPersonalInfo = { ...authUser, ...data };
     const localUsers = JSON.parse(localStorage.getItem('users'));
     const changedLocalUsers = localUsers.map(user => {
@@ -40,56 +38,54 @@ class App extends React.Component {
 
     localStorage.setItem('users', JSON.stringify(changedLocalUsers));
 
-    this.setState({ authUser: addPersonalInfo });
+    setAuthUser(addPersonalInfo);
   }
 
-  render() {
-    const { isLogged, authUser } = this.state;
-
-    return (
-      <div className='wrapper'>
-        <Routes>
-          <Route path='*' element={<Wrapper
-            {...this.props}
-            isLogged={isLogged}
-            authUser={authUser}
-            handleLogOut={this.handleLogOut} />}
-          />
-          <Route path='/login/*' element={<AuthorizationContainer
-            handleLogIn={this.handleLogIn}
-            isLogged={isLogged}
-            authUser={authUser} />}
-          />
-          <Route path='/registration/*' element={<RegistrationContainer
-            handleLogIn={this.handleLogIn} />}
-          />
-          {isLogged &&
-            <>
-              <Route path='/personal-area/:user/info/*' element={<PrivacyInfo
-                {...this.props}
-                isLogged={isLogged}
-                authUser={authUser}
-                handleLogOut={this.handleLogOut}
-                handleNewPersonalInfo={this.handleNewPersonalInfo} />}
-              />
-              <Route path='/personal-area/:user/orders/*' element={<Orders
-                {...this.props}
-                isLogged={isLogged}
-                authUser={authUser}
-                handleLogOut={this.handleLogOut} />}
-              />
-              <Route path='/personal-area/:user/terms/*' element={<TermsService
-                {...this.props}
-                isLogged={isLogged}
-                authUser={authUser}
-                handleLogOut={this.handleLogOut} />}
-              />
-            </>
-          }
-        </Routes>
-      </div>
-    )
-  }
+  return (
+    <div className='wrapper'>
+      <Routes>
+        <Route path='*' element={<Wrapper
+          {...props}
+          location={location}
+          isLogged={isLogged}
+          authUser={authUser}
+          handleLogOut={handleLogOut} />}
+        />
+        <Route path='/login/*' element={<AuthorizationContainer
+          handleLogIn={handleLogIn}
+          isLogged={isLogged}
+          authUser={authUser} />}
+        />
+        <Route path='/registration/*' element={<RegistrationContainer
+          navigate={navigate}
+          handleLogIn={handleLogIn} />}
+        />
+        {isLogged &&
+          <>
+            <Route path='/personal-area/:user/info/*' element={<PrivacyInfo
+              {...props}
+              isLogged={isLogged}
+              authUser={authUser}
+              handleLogOut={handleLogOut}
+              handleNewPersonalInfo={handleNewPersonalInfo} />}
+            />
+            <Route path='/personal-area/:user/orders/*' element={<Orders
+              {...props}
+              isLogged={isLogged}
+              authUser={authUser}
+              handleLogOut={handleLogOut} />}
+            />
+            <Route path='/personal-area/:user/terms/*' element={<TermsService
+              {...props}
+              isLogged={isLogged}
+              authUser={authUser}
+              handleLogOut={handleLogOut} />}
+            />
+          </>
+        }
+      </Routes>
+    </div>
+  )
 }
 
 export default App;

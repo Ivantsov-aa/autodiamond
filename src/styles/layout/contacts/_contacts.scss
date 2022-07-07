@@ -2,7 +2,7 @@
     @include block-pos;
     padding: 27px 0 70px;
 
-    .contacts-wrapper {
+    .contacts-menu {
         display: flex;
         justify-content: space-between;
         margin-bottom: 70px;
@@ -41,6 +41,10 @@
                 @include font-params (400, 28px, 34px);
             }
         }
+    }
+
+    .contacts-wrapper-mobile {
+        display: none;
     }
 
     .map {
@@ -82,15 +86,11 @@
         @include block-pos-laptop;
         padding: 27px 0 40px;
 
-        .contacts-wrapper {
-            display: flex;
-            justify-content: space-between;
+        .contacts-menu {
             margin-bottom: 40px;
 
             button {
                 @include font-params (400, 16px, 19px);
-                border-radius: 5px;
-                border: 1px solid #F98600;
                 padding: 10px 20px;
             }
         }
@@ -113,6 +113,97 @@
         .map {
             width: 924px;
             height: 344px;
+
+            .ymaps-2-1-79-map {
+                .ymaps-2-1-79-balloon {
+                    .ymaps-2-1-79-balloon__content {
+                        width: 250px;
+
+                        h2 {
+                            margin-bottom: 10px;
+                            @include font-params (700, 20px, 24px);
+                        }
+
+                        h3 {
+                            @include font-params (500, 16px, 19px);
+                            margin-bottom: 10px;
+                            width: 210px;
+                        }
+
+                        p {
+                            @include font-params (400, 16px, 19px);
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 280px) {
+    .contacts {
+        @include block-pos-mobile;
+        padding: 0;
+
+        .contacts-wrapper {
+            display: none;
+        }
+
+        .contacts-wrapper-mobile {
+            display: block;
+            @include block-pos-mobile;
+
+            .contacts-accordion {
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                button {
+                    @include font-params (500, 14px, 17px);
+                    padding: 10px;
+                    background-color: #F98600;
+                    width: 100%;
+                    text-align: left;
+                    color: #fff;
+                    position: relative;
+                    outline: none;
+
+                    &::after {
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        right: 20px;
+                        top: 14px;
+                        width: 10px;
+                        height: 10px;
+                        background: url('../../../../public/images/accordion-arrow.svg') no-repeat center;
+                        background-size: 10px
+                    }
+
+                    &.active {
+                        &::after {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                .addresses {
+                    @include font-params (400, 12px, 14px);
+                    padding: 10px;
+                    border-left: 1px solid #F98600;
+                    border-right: 1px solid #F98600;
+                    border-bottom: 1px solid #F98600;
+                }
+            } 
+        }
+
+        .map {
+            width: 330px;
+            height: 226px;
+            margin: 20px auto;
 
             .ymaps-2-1-79-map {
                 .ymaps-2-1-79-balloon {

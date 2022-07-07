@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ navigate }) => {
     const [statePassword, changeStatePassword] = useState(false);
+    let arrayUsers = JSON.parse(localStorage.getItem('users'));
+    if (arrayUsers === null) arrayUsers = [];
 
     const {
         register,
@@ -15,9 +17,7 @@ const RegistrationForm = () => {
     });
 
     const onSubmit = (data) => {
-        let arrayUsers = JSON.parse(localStorage.getItem('users'));
-        if (arrayUsers === null) arrayUsers = [];
-        arrayUsers.push(data);
+        arrayUsers.push(data)
         localStorage.setItem('users', JSON.stringify(arrayUsers));
 
         reset();
@@ -36,12 +36,17 @@ const RegistrationForm = () => {
                         pattern: {
                             value: /([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}/,
                             message: 'E-mail введён некорректно.'
+                        },
+                        validate: value => {
+                            return arrayUsers.map(user => {
+                                return user.mail !== value || ''
+                            })
                         }
                     })}
                 />
             </label>
             <div className='error-message'>
-                {errors?.mail && <p>{errors?.mail?.message || 'Error!'}</p>}
+                {errors?.mail && <p>{errors?.mail?.message || errors?.mail?.type === 'validate' ? 'Пользователь с таким E-mail уже существует.' : 'Error!'}</p>}
             </div>
             <label>
                 Логин
@@ -62,12 +67,17 @@ const RegistrationForm = () => {
                         pattern: {
                             value: /[a-zA-Z0-9]/,
                             message: 'Логин введён некорректно.'
+                        },
+                        validate: value => {
+                            return arrayUsers.map(user => {
+                                return user.login !== value || ''
+                            })
                         }
                     })}
                 />
             </label>
             <div className='error-message'>
-                {errors?.login && <p>{errors?.login?.message || 'Error!'}</p>}
+                {errors?.login && <p>{errors?.login?.message || errors?.login?.type === 'validate' ? 'Пользователь с таким логином уже существует.' : 'Error!'}</p>}
             </div>
             <label className='password'>
                 Пароль

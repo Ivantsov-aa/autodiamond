@@ -184,7 +184,7 @@
     .news-block {
         flex-direction: column;
         @include block-pos-mobile;
-        padding: 20px 0;
+        padding: 20px 0 40px;
 
         h3 {
             @include font-params (700, 16px, 19px);
@@ -199,30 +199,35 @@
 
         .news-item {
             img {
-                margin-bottom: 15px;
-                width: 180px;
                 height: 167px;
+                width: 180px;
+                margin: auto;
+                margin-bottom: 15px;
             }
 
             h4 {
                 @include font-params (600, 16px, 19px);
+                width: 180px;
+                margin: auto;
                 margin-bottom: 10px;
             }
 
             .news-date {
                 @include font-params (400, 10px, 12px);
+                margin: auto;
                 margin-bottom: 10px;
             }
 
             p {
                 @include font-params (400, 14px, 17px);
+                margin: auto;
             }
 
         }
 
         .slick-list {
             height: 404px;
-            width: 180px;
+            width: 330px;
             margin: auto;
 
             .slick-slide {

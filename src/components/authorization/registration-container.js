@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import RegistrationForm from "./registration-form";
 
-const RegistrationContainer = () => {
+const RegistrationContainer = ({navigate}) => {
     return (
         <section className='authorization__wrapper'>
             <div className='authorization__img'>
@@ -18,7 +18,7 @@ const RegistrationContainer = () => {
                         className='active'
                     >Регистрация</Link>
                 </div>
-                <RegistrationForm />
+                <RegistrationForm navigate={navigate} />
             </div>
         </section>
     )

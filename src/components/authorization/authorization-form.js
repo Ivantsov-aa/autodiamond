@@ -32,7 +32,7 @@ const AuthorizationForm = (props) => {
 
     return (
         <form className='authorization-form' onSubmit={handleSubmit(onSubmit)}>
-            <div>{errorAuth && 'Неверный логин или пароль.'}</div>
+            <div className='error-message'>{errorAuth && 'Неверный логин или пароль.'}</div>
             <label>
                 Логин
                 <input

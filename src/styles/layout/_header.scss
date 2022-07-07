@@ -18,6 +18,7 @@ header {
                 display: none;
                 outline: none;
                 width: 41px;
+                -webkit-tap-highlight-color: transparent;
 
                 span {
                     display: block;
@@ -72,6 +73,7 @@ header {
                         background-repeat: no-repeat;
                         vertical-align: middle;
                         margin-right: 25px;
+                        outline: none;
                     }
 
                     &.authorization_button {
@@ -180,10 +182,12 @@ header {
 @media only screen and (max-width: 1023px) and (min-width: 280px) {
     header {
         background: #fcc27b;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         z-index: 10;
-        position: fixed;
         width: 100%;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
 
         .header__wrapper {
             @include block-pos-mobile;
@@ -210,6 +214,7 @@ header {
                 .hamburger-button {
                     display: block;
                     padding-top: 7px;
+
                     &.open {
                         span:nth-of-type(1) {
                             transform: rotate(45deg) translate(9px, 10px);
@@ -236,6 +241,11 @@ header {
 
                 &.active {
                     display: flex;
+                    position: absolute;
+                    top: 78px;
+                    background: #fcc27b;
+                    width: 330px;
+                    padding: 0 20px;
                 }
 
                 nav {
@@ -277,6 +287,9 @@ header {
 
                     >a,
                     >button {
+                        @include font-params (400, 16px, 19px);
+                        text-align: start;
+
                         &::before {
                             content: '';
                             display: inline-block;
