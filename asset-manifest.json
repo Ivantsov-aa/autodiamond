@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/autodiamond/static/css/main.ecfa2669.css",
-    "main.js": "/autodiamond/static/js/main.70dc5b3c.js",
+    "main.js": "/autodiamond/static/js/main.cf681d94.js",
     "static/media/authorization-image.png": "/autodiamond/static/media/authorization-image.9e47db32dde459c5e98a.png",
     "static/media/main-page-photo.png": "/autodiamond/static/media/main-page-photo.85c76657c971cfab92e0.png",
     "static/media/agreement-icon.svg": "/autodiamond/static/media/agreement-icon.5b42d957510763815d56.svg",
@@ -31,10 +31,10 @@
     "static/media/apply-input.svg": "/autodiamond/static/media/apply-input.1c2d160a37031194afae.svg",
     "static/media/select-arrow.svg": "/autodiamond/static/media/select-arrow.7ec31814a14d8146821a.svg",
     "main.ecfa2669.css.map": "/autodiamond/static/css/main.ecfa2669.css.map",
-    "main.70dc5b3c.js.map": "/autodiamond/static/js/main.70dc5b3c.js.map"
+    "main.cf681d94.js.map": "/autodiamond/static/js/main.cf681d94.js.map"
   },
   "entrypoints": [
     "static/css/main.ecfa2669.css",
-    "static/js/main.70dc5b3c.js"
+    "static/js/main.cf681d94.js"
   ]
 }
