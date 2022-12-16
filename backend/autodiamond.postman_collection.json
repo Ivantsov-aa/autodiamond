@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "e7c5bc77-7eeb-4035-9844-eaeb87fb4c7d",
+		"name": "autodiamond",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api1c",
+			"item": [
+				{
+					"name": "New Folder",
+					"item": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "admin@test.test",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin1234",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api1c}}login",
+							"host": [
+								"{{api1c}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer1c}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{api1c}}logout",
+							"host": [
+								"{{api1c}}logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{api}}user",
+									"host": [
+										"{{api}}user"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Car",
+					"item": [
+						{
+							"name": "brands",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{api}}cars/brands",
+									"host": [
+										"{{api}}cars"
+									],
+									"path": [
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "models",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{api}}cars/models?brand=consequatur",
+									"host": [
+										"{{api}}cars"
+									],
+									"path": [
+										"models"
+									],
+									"query": [
+										{
+											"key": "brand",
+											"value": "consequatur"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user@test.test",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "user1234",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}login",
+							"host": [
+								"{{api}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{api}}logout",
+							"host": [
+								"{{api}}logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "user 1",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "user 1",
+									"type": "text"
+								},
+								{
+									"key": "patronymic",
+									"value": "user 1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "79221110500",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user1@test.test",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user1234",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "user1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api}}signup",
+							"host": [
+								"{{api}}signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api1c",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "api",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "bearer1c",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "bearer",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
