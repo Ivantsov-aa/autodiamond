@@ -71,7 +71,9 @@ class Product extends Model
      */
     public function storages(): BelongsToMany
     {
-        return $this->belongsToMany(Storage::class);
+        return $this->belongsToMany(Storage::class)
+            ->withPivot('quantity')
+            ->orderByPivot('quantity', 'desc');
     }
 
     /**

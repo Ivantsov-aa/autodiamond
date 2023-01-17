@@ -18,6 +18,19 @@ class LoginController extends Controller
     ) {}
 
     /**
+     * Log in and get a bearer token.
+     *
+     * @unauthenticated
+     *
+     * @bodyParam email string required Example: user@test.test
+     * @bodyParam password string required Example: user1234
+     *
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     * @apiResourceAdditional token=hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1
+     *
+     * @response 401 {"message": "Bad credentials"}
+     *
      * @param LoginRequest $request
      * @return UserResource|JsonResponse
      */
@@ -41,5 +54,4 @@ class LoginController extends Controller
                 'token' => $user->createToken(config('sanctum.token'))->plainTextToken,
             ]);
     }
-
 }

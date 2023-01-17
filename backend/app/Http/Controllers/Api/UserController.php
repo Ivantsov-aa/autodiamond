@@ -12,7 +12,16 @@ class UserController extends Controller
         private UserService $userService
     ) {}
 
-    public function index()
+    /**
+     * Retrieves authenticated user data with orders.
+     *
+     * @authenticated
+     * @apiResource App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @return UserResource
+     */
+    public function index(): UserResource
     {
         return new UserResource($this->userService->index());
     }

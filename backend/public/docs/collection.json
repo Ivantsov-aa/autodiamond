@@ -1,0 +1,520 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/autodiamond.test"
+        }
+    ],
+    "info": {
+        "name": "AutoDiamond",
+        "_postman_id": "cc73f897-bb84-4962-b0eb-d3bd6276db4f",
+        "description": "This is an API for the auto parts store AutoDiamond",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Cars",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieves a list of car brands.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/brands",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/cars\/brands"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"brands\":[\"Dolores\",\"Voluptatibus\",\"Aut\"]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieves a list of brand models.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/models",
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "Dolores",
+                                    "description": "The brand.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/cars\/models?brand=Dolores"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"models\":[\"Aut\",\"Voluptatibus\",\"Id\",\"Consectetur\"]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieves a list of model engines.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/engines",
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "Dolores",
+                                    "description": "The brand.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "model",
+                                    "value": "Consectetur",
+                                    "description": "The model.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/cars\/engines?brand=Dolores&model=Consectetur"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"engines\":[\"Perspiciatis\"]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Log in and get a bearer token.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"user@test.test\",\"password\":\"user1234\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":25,\"name\":\"\\u0420\\u043e\\u0437\\u0430\\u043b\\u0438\\u043d\\u0430\",\"lastname\":\"\\u0421\\u043e\\u043b\\u043e\\u0432\\u044c\\u0451\\u0432\\u0430\",\"patronymic\":null,\"phone\":\"+12252668081\",\"email\":\"veniamin03@example.com\",\"role\":\"user\"},\"token\":\"hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\": \"Bad credentials\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Sign up a new user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/signup",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/signup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Will\",\"lastname\":\"Smith\",\"patronymic\":\"repellat\",\"phone\":\"+12252668081\",\"email\":\"user@test.com\",\"password\":\"?:E]Mnbk5.n3{\",\"password_confirmation\":\"eum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"You are registered\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Deletes user authentication tokens.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"Logged out\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieves authenticated user data with orders.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":26,\"name\":\"\\u0412\\u0430\\u0440\\u0432\\u0430\\u0440\\u0430\",\"lastname\":\"\\u041c\\u0430\\u0441\\u043b\\u043e\\u0432\",\"patronymic\":null,\"phone\":\"+12252668081\",\"email\":\"eliseeva.olga@example.net\",\"role\":\"user\"}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "description": "",
+            "item": [
+                {
+                    "name": "Retrieves products found by car brand and model. If there is a category parameter in the request, products from\nthis category will be extracted.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products",
+                            "query": [
+                                {
+                                    "key": "brand",
+                                    "value": "Dolores",
+                                    "description": "The brand.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "model",
+                                    "value": "Consectetur",
+                                    "description": "The model.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "officia",
+                                    "description": "The category of the products.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/products?brand=Dolores&model=Consectetur&category=officia"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"products\":[{\"id\":4,\"key\":\"Wp6RWWIzBk94Ea2x\",\"name\":\"Et\",\"description\":\"Doloremque velit qui tenetur laborum repellat.\",\"article\":\"B6pUH9XFNNfR6eBz\",\"type\":\"\\u0443\\u0441\\u043b\\u0443\\u0433\\u0430\",\"manufacturer\":\"\\u041e\\u0410\\u041e \\u0422\\u0435\\u043b\\u0435\\u041e\\u0440\\u0438\\u043e\\u043d\",\"country\":\"\\u0411\\u0430\\u0433\\u0430\\u043c\\u044b\",\"measure\":\"\\u0448\\u0442\",\"price\":\"58.41\",\"warranty\":\"Soluta dolorem repellat ut explicabo. Minima asperiores ad et blanditiis recusandae eaque.\",\"storages\":[{\"id\":5,\"name\":\"Erem\",\"city\":\"\\u0412\\u043e\\u043b\\u0433\\u043e\\u0433\\u0440\\u0430\\u0434\",\"address\":\"\\u0415\\u0440\\u0451\\u043c\\u0435\\u043d\\u043a\\u043e 53\",\"quantity\":9},{\"id\":9,\"name\":\"Tresh\",\"city\":\"\\u0412\\u043e\\u043b\\u0433\\u043e\\u0433\\u0440\\u0430\\u0434\",\"address\":\"\\u0417\\u0435\\u043c\\u043b\\u044f\\u0447\\u043a\\u0438 39\\u0433\",\"quantity\":9},{\"id\":3,\"name\":\"Astr\",\"city\":\"\\u0410\\u0441\\u0442\\u0440\\u0430\\u0445\\u0430\\u043d\\u044c\",\"address\":\"\\u0411.\\u0425\\u043c\\u0435\\u043b\\u044c\\u043d\\u0438\\u0446\\u043a\\u043e\\u0433\\u043e 5\",\"quantity\":8},{\"id\":7,\"name\":\"Kolos\",\"city\":\"\\u0412\\u043e\\u043b\\u0433\\u043e\\u0433\\u0440\\u0430\\u0434\",\"address\":\"\\u041a\\u043e\\u043b\\u043e\\u0441\\u043e\\u0432\\u0430\\u044f 12\",\"quantity\":7},{\"id\":2,\"name\":\"Astr\",\"city\":\"\\u0410\\u0441\\u0442\\u0440\\u0430\\u0445\\u0430\\u043d\\u044c\",\"address\":\"\\u0411\\u043e\\u0435\\u0432\\u0430\\u044f 2\",\"quantity\":6},{\"id\":4,\"name\":\"Kras\",\"city\":\"\\u041a\\u0440\\u0430\\u0441\\u043d\\u043e\\u0434\\u0430\\u0440\",\"address\":\"\\u0420\\u043e\\u0441\\u0441\\u0438\\u0439\\u0441\\u043a\\u0430\\u044f 488\",\"quantity\":6},{\"id\":1,\"name\":\"Volzhsk\",\"city\":\"\\u0412\\u043e\\u043b\\u0436\\u0441\\u043a\\u0438\\u0439\",\"address\":\"\\u041b\\u0435\\u043d\\u0438\\u043d\\u0430 104\\u0430\",\"quantity\":5},{\"id\":6,\"name\":\"Ang\",\"city\":\"\\u0412\\u043e\\u043b\\u0433\\u043e\\u0433\\u0440\\u0430\\u0434\",\"address\":\"\\u0410\\u043d\\u0433\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f 90\",\"quantity\":4},{\"id\":8,\"name\":\"Stal\",\"city\":\"\\u0412\\u043e\\u043b\\u0433\\u043e\\u0433\\u0440\\u0430\\u0434\",\"address\":\"\\u041f\\u0440\\u043e\\u0441\\u043f\\u0435\\u043a\\u0442 \\u0433\\u0435\\u0440\\u043e\\u0435\\u0432 \\u0441\\u0442\\u0430\\u043b\\u0438\\u043d\\u0433\\u0440\\u0430\\u0434\\u0430 21\",\"quantity\":3}]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Retrieves product data found by the article.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/products\/:article",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/products\/:article",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "LtH6MFkBYHuVY98N",
+                                    "description": "The article of the product."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"product\":{\"id\":1,\"key\":\"el0So6xDrrpVWi5V\",\"name\":\"Non\",\"description\":\"Atque sed qui occaecati magni in et.\",\"article\":\"LtH6MFkBYHuVY98N\",\"type\":\"\\u0443\\u0441\\u043b\\u0443\\u0433\\u0430\",\"manufacturer\":\"\\u041c\\u0424\\u041e \\u041c\\u0435\\u0442\\u0438\\u0437\\u0413\\u043e\\u0440\",\"country\":\"\\u0418\\u0441\\u043b\\u0430\\u043d\\u0434\\u0438\\u044f\",\"measure\":\"\\u0448\\u0442\",\"price\":\"95.61\",\"warranty\":\"Maiores sapiente suscipit consequatur doloribus. Voluptas quo ipsam distinctio est. Modi qui nam ut. Aut atque illum accusamus aut sunt ad quisquam.\",\"group_of_analogs\":null}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}

@@ -179,7 +179,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{api}}cars/models?brand=consequatur",
+									"raw": "{{api}}cars/models?brand=Consequatur",
 									"host": [
 										"{{api}}cars"
 									],
@@ -189,8 +189,111 @@
 									"query": [
 										{
 											"key": "brand",
-											"value": "consequatur"
+											"value": "Consequatur"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "engines",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{api}}cars/engines?brand=Consequatur&model=Corrupti",
+									"host": [
+										"{{api}}cars"
+									],
+									"path": [
+										"engines"
+									],
+									"query": [
+										{
+											"key": "brand",
+											"value": "Consequatur"
+										},
+										{
+											"key": "model",
+											"value": "Corrupti"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{bearer}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "getProductsByCarBrandAndModel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api}}products/dolores/id",
+									"host": [
+										"{{api}}products"
+									],
+									"path": [
+										"dolores",
+										"id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getProductByArticle",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api}}products/xoo4EDXM0j2cevZK",
+									"host": [
+										"{{api}}products"
+									],
+									"path": [
+										"xoo4EDXM0j2cevZK"
 									]
 								}
 							},
@@ -352,6 +455,53 @@
 							"raw": "{{api}}signup",
 							"host": [
 								"{{api}}signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test_server",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user@test.test",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "user1234",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://avd-backend.veon-tech.ru/api/login",
+							"protocol": "http",
+							"host": [
+								"avd-backend",
+								"veon-tech",
+								"ru"
+							],
+							"path": [
+								"api",
+								"login"
 							]
 						}
 					},

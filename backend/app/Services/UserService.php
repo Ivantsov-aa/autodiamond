@@ -16,6 +16,7 @@ class UserService
     {
         return auth()->user()->load('orders');
     }
+
     /**
      * Returns the user model found by ID or throws Illuminate\Database\Eloquent\ModelNotFoundException
      *

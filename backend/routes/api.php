@@ -33,21 +33,25 @@ Route::middleware(['auth:sanctum', 'role:' . PredefinedRolesEnum::USER->value])
             ->group(function () {
                 Route::get('/', 'index')->name('index');
             });
+    });
 
-        Route::prefix('products')
-            ->name('products.')
-            ->controller(ProductController::class)
-            ->group(function () {
-                Route::get('/catalog', 'catalog')->name('catalog');
-            });
+Route::prefix('products')
+    ->name('products.')
+    ->controller(ProductController::class)
+    ->group(function () {
+        Route::get('/', 'getProductsByCarBrandAndModel')->name('getProductByBrandAndModel');
 
-        Route::prefix('cars')
-            ->name('cars.')
-            ->controller(CarController::class)
-            ->group(function () {
-                Route::get('/brands', 'brands')->name('brands');
+        Route::get('/{article}', 'getProductByArticle')->name('getProductByArticle');
+    });
 
-                Route::get('/models', 'models')->name('models');
-            });
+Route::prefix('cars')
+    ->name('cars.')
+    ->controller(CarController::class)
+    ->group(function () {
+        Route::get('/brands', 'brands')->name('brands');
+
+        Route::get('/models', 'models')->name('models');
+
+        Route::get('/engines', 'engines')->name('engines');
     });
 

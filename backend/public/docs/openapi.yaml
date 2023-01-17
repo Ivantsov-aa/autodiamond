@@ -1,0 +1,880 @@
+openapi: 3.0.3
+info:
+  title: AutoDiamond
+  description: 'This is an API for the auto parts store AutoDiamond'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://autodiamond.test'
+paths:
+  /api/cars/brands:
+    get:
+      summary: 'Retrieves a list of car brands.'
+      operationId: retrievesAListOfCarBrands
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  brands:
+                    - Dolores
+                    - Voluptatibus
+                    - Aut
+                properties:
+                  brands:
+                    type: array
+                    example:
+                      - Dolores
+                      - Voluptatibus
+                      - Aut
+                    items:
+                      type: string
+      tags:
+        - Cars
+      security: []
+  /api/cars/models:
+    get:
+      summary: 'Retrieves a list of brand models.'
+      operationId: retrievesAListOfBrandModels
+      description: ''
+      parameters:
+        -
+          in: query
+          name: brand
+          description: 'The brand.'
+          example: Dolores
+          required: true
+          schema:
+            type: string
+            description: 'The brand.'
+            example: Dolores
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  models:
+                    - Aut
+                    - Voluptatibus
+                    - Id
+                    - Consectetur
+                properties:
+                  models:
+                    type: array
+                    example:
+                      - Aut
+                      - Voluptatibus
+                      - Id
+                      - Consectetur
+                    items:
+                      type: string
+      tags:
+        - Cars
+      security: []
+  /api/cars/engines:
+    get:
+      summary: 'Retrieves a list of model engines.'
+      operationId: retrievesAListOfModelEngines
+      description: ''
+      parameters:
+        -
+          in: query
+          name: brand
+          description: 'The brand.'
+          example: Dolores
+          required: true
+          schema:
+            type: string
+            description: 'The brand.'
+            example: Dolores
+        -
+          in: query
+          name: model
+          description: 'The model.'
+          example: Consectetur
+          required: true
+          schema:
+            type: string
+            description: 'The model.'
+            example: Consectetur
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  engines:
+                    - Perspiciatis
+                properties:
+                  engines:
+                    type: array
+                    example:
+                      - Perspiciatis
+                    items:
+                      type: string
+      tags:
+        - Cars
+      security: []
+  /api/login:
+    post:
+      summary: 'Log in and get a bearer token.'
+      operationId: logInAndGetABearerToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 25
+                    name: Розалина
+                    lastname: Соловьёва
+                    patronymic: null
+                    phone: '+12252668081'
+                    email: veniamin03@example.com
+                    role: user
+                  token: hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 25
+                      name:
+                        type: string
+                        example: Розалина
+                      lastname:
+                        type: string
+                        example: Соловьёва
+                      patronymic:
+                        type: string
+                        example: null
+                      phone:
+                        type: string
+                        example: '+12252668081'
+                      email:
+                        type: string
+                        example: veniamin03@example.com
+                      role:
+                        type: string
+                        example: user
+                  token:
+                    type: string
+                    example: hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Bad credentials'
+                properties:
+                  message:
+                    type: string
+                    example: 'Bad credentials'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: user@test.test
+                password:
+                  type: string
+                  description: ''
+                  example: user1234
+              required:
+                - email
+                - password
+      security: []
+  /api/signup:
+    post:
+      summary: 'Sign up a new user.'
+      operationId: signUpANewUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'You are registered'
+                properties:
+                  message:
+                    type: string
+                    example: 'You are registered'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The username.'
+                  example: Will
+                lastname:
+                  type: string
+                  description: 'The lastname.'
+                  example: Smith
+                patronymic:
+                  type: string
+                  description: 'The user patronymic.'
+                  example: repellat
+                phone:
+                  type: string
+                  description: "The user's phone number."
+                  example: '+12252668081'
+                email:
+                  type: string
+                  description: "The user's email."
+                  example: user@test.com
+                password:
+                  type: string
+                  description: "The user's password."
+                  example: '?:E]Mnbk5.n3{'
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: eum
+              required:
+                - name
+                - lastname
+                - phone
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/logout:
+    post:
+      summary: 'Deletes user authentication tokens.'
+      operationId: deletesUserAuthenticationTokens
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Logged out'
+                properties:
+                  message:
+                    type: string
+                    example: 'Logged out'
+      tags:
+        - Endpoints
+  /api/user:
+    get:
+      summary: 'Retrieves authenticated user data with orders.'
+      operationId: retrievesAuthenticatedUserDataWithOrders
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 26
+                    name: Варвара
+                    lastname: Маслов
+                    patronymic: null
+                    phone: '+12252668081'
+                    email: eliseeva.olga@example.net
+                    role: user
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 26
+                      name:
+                        type: string
+                        example: Варвара
+                      lastname:
+                        type: string
+                        example: Маслов
+                      patronymic:
+                        type: string
+                        example: null
+                      phone:
+                        type: string
+                        example: '+12252668081'
+                      email:
+                        type: string
+                        example: eliseeva.olga@example.net
+                      role:
+                        type: string
+                        example: user
+      tags:
+        - Endpoints
+  /api/products:
+    get:
+      summary: "Retrieves products found by car brand and model. If there is a category parameter in the request, products from\nthis category will be extracted."
+      operationId: retrievesProductsFoundByCarBrandAndModelIfThereIsACategoryParameterInTheRequestProductsFromthisCategoryWillBeExtracted
+      description: ''
+      parameters:
+        -
+          in: query
+          name: brand
+          description: 'The brand.'
+          example: Dolores
+          required: true
+          schema:
+            type: string
+            description: 'The brand.'
+            example: Dolores
+        -
+          in: query
+          name: model
+          description: 'The model.'
+          example: Consectetur
+          required: true
+          schema:
+            type: string
+            description: 'The model.'
+            example: Consectetur
+        -
+          in: query
+          name: category
+          description: 'The category of the products.'
+          example: officia
+          required: false
+          schema:
+            type: string
+            description: 'The category of the products.'
+            example: officia
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  products:
+                    -
+                      id: 4
+                      key: Wp6RWWIzBk94Ea2x
+                      name: Et
+                      description: 'Doloremque velit qui tenetur laborum repellat.'
+                      article: B6pUH9XFNNfR6eBz
+                      type: услуга
+                      manufacturer: 'ОАО ТелеОрион'
+                      country: Багамы
+                      measure: шт
+                      price: '58.41'
+                      warranty: 'Soluta dolorem repellat ut explicabo. Minima asperiores ad et blanditiis recusandae eaque.'
+                      storages:
+                        -
+                          id: 5
+                          name: Erem
+                          city: Волгоград
+                          address: 'Ерёменко 53'
+                          quantity: 9
+                        -
+                          id: 9
+                          name: Tresh
+                          city: Волгоград
+                          address: 'Землячки 39г'
+                          quantity: 9
+                        -
+                          id: 3
+                          name: Astr
+                          city: Астрахань
+                          address: 'Б.Хмельницкого 5'
+                          quantity: 8
+                        -
+                          id: 7
+                          name: Kolos
+                          city: Волгоград
+                          address: 'Колосовая 12'
+                          quantity: 7
+                        -
+                          id: 2
+                          name: Astr
+                          city: Астрахань
+                          address: 'Боевая 2'
+                          quantity: 6
+                        -
+                          id: 4
+                          name: Kras
+                          city: Краснодар
+                          address: 'Российская 488'
+                          quantity: 6
+                        -
+                          id: 1
+                          name: Volzhsk
+                          city: Волжский
+                          address: 'Ленина 104а'
+                          quantity: 5
+                        -
+                          id: 6
+                          name: Ang
+                          city: Волгоград
+                          address: 'Ангарская 90'
+                          quantity: 4
+                        -
+                          id: 8
+                          name: Stal
+                          city: Волгоград
+                          address: 'Проспект героев сталинграда 21'
+                          quantity: 3
+                properties:
+                  products:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        key: Wp6RWWIzBk94Ea2x
+                        name: Et
+                        description: 'Doloremque velit qui tenetur laborum repellat.'
+                        article: B6pUH9XFNNfR6eBz
+                        type: услуга
+                        manufacturer: 'ОАО ТелеОрион'
+                        country: Багамы
+                        measure: шт
+                        price: '58.41'
+                        warranty: 'Soluta dolorem repellat ut explicabo. Minima asperiores ad et blanditiis recusandae eaque.'
+                        storages:
+                          -
+                            id: 5
+                            name: Erem
+                            city: Волгоград
+                            address: 'Ерёменко 53'
+                            quantity: 9
+                          -
+                            id: 9
+                            name: Tresh
+                            city: Волгоград
+                            address: 'Землячки 39г'
+                            quantity: 9
+                          -
+                            id: 3
+                            name: Astr
+                            city: Астрахань
+                            address: 'Б.Хмельницкого 5'
+                            quantity: 8
+                          -
+                            id: 7
+                            name: Kolos
+                            city: Волгоград
+                            address: 'Колосовая 12'
+                            quantity: 7
+                          -
+                            id: 2
+                            name: Astr
+                            city: Астрахань
+                            address: 'Боевая 2'
+                            quantity: 6
+                          -
+                            id: 4
+                            name: Kras
+                            city: Краснодар
+                            address: 'Российская 488'
+                            quantity: 6
+                          -
+                            id: 1
+                            name: Volzhsk
+                            city: Волжский
+                            address: 'Ленина 104а'
+                            quantity: 5
+                          -
+                            id: 6
+                            name: Ang
+                            city: Волгоград
+                            address: 'Ангарская 90'
+                            quantity: 4
+                          -
+                            id: 8
+                            name: Stal
+                            city: Волгоград
+                            address: 'Проспект героев сталинграда 21'
+                            quantity: 3
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        key:
+                          type: string
+                          example: Wp6RWWIzBk94Ea2x
+                        name:
+                          type: string
+                          example: Et
+                        description:
+                          type: string
+                          example: 'Doloremque velit qui tenetur laborum repellat.'
+                        article:
+                          type: string
+                          example: B6pUH9XFNNfR6eBz
+                        type:
+                          type: string
+                          example: услуга
+                        manufacturer:
+                          type: string
+                          example: 'ОАО ТелеОрион'
+                        country:
+                          type: string
+                          example: Багамы
+                        measure:
+                          type: string
+                          example: шт
+                        price:
+                          type: string
+                          example: '58.41'
+                        warranty:
+                          type: string
+                          example: 'Soluta dolorem repellat ut explicabo. Minima asperiores ad et blanditiis recusandae eaque.'
+                        storages:
+                          type: array
+                          example:
+                            -
+                              id: 5
+                              name: Erem
+                              city: Волгоград
+                              address: 'Ерёменко 53'
+                              quantity: 9
+                            -
+                              id: 9
+                              name: Tresh
+                              city: Волгоград
+                              address: 'Землячки 39г'
+                              quantity: 9
+                            -
+                              id: 3
+                              name: Astr
+                              city: Астрахань
+                              address: 'Б.Хмельницкого 5'
+                              quantity: 8
+                            -
+                              id: 7
+                              name: Kolos
+                              city: Волгоград
+                              address: 'Колосовая 12'
+                              quantity: 7
+                            -
+                              id: 2
+                              name: Astr
+                              city: Астрахань
+                              address: 'Боевая 2'
+                              quantity: 6
+                            -
+                              id: 4
+                              name: Kras
+                              city: Краснодар
+                              address: 'Российская 488'
+                              quantity: 6
+                            -
+                              id: 1
+                              name: Volzhsk
+                              city: Волжский
+                              address: 'Ленина 104а'
+                              quantity: 5
+                            -
+                              id: 6
+                              name: Ang
+                              city: Волгоград
+                              address: 'Ангарская 90'
+                              quantity: 4
+                            -
+                              id: 8
+                              name: Stal
+                              city: Волгоград
+                              address: 'Проспект героев сталинграда 21'
+                              quantity: 3
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 5
+                              name:
+                                type: string
+                                example: Erem
+                              city:
+                                type: string
+                                example: Волгоград
+                              address:
+                                type: string
+                                example: 'Ерёменко 53'
+                              quantity:
+                                type: integer
+                                example: 9
+      tags:
+        - Products
+      security: []
+  '/api/products/{article}':
+    get:
+      summary: 'Retrieves product data found by the article.'
+      operationId: retrievesProductDataFoundByTheArticle
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  product:
+                    id: 1
+                    key: el0So6xDrrpVWi5V
+                    name: Non
+                    description: 'Atque sed qui occaecati magni in et.'
+                    article: LtH6MFkBYHuVY98N
+                    type: услуга
+                    manufacturer: 'МФО МетизГор'
+                    country: Исландия
+                    measure: шт
+                    price: '95.61'
+                    warranty: 'Maiores sapiente suscipit consequatur doloribus. Voluptas quo ipsam distinctio est. Modi qui nam ut. Aut atque illum accusamus aut sunt ad quisquam.'
+                    group_of_analogs: null
+                properties:
+                  product:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      key:
+                        type: string
+                        example: el0So6xDrrpVWi5V
+                      name:
+                        type: string
+                        example: Non
+                      description:
+                        type: string
+                        example: 'Atque sed qui occaecati magni in et.'
+                      article:
+                        type: string
+                        example: LtH6MFkBYHuVY98N
+                      type:
+                        type: string
+                        example: услуга
+                      manufacturer:
+                        type: string
+                        example: 'МФО МетизГор'
+                      country:
+                        type: string
+                        example: Исландия
+                      measure:
+                        type: string
+                        example: шт
+                      price:
+                        type: string
+                        example: '95.61'
+                      warranty:
+                        type: string
+                        example: 'Maiores sapiente suscipit consequatur doloribus. Voluptas quo ipsam distinctio est. Modi qui nam ut. Aut atque illum accusamus aut sunt ad quisquam.'
+                      group_of_analogs:
+                        type: string
+                        example: null
+      tags:
+        - Products
+      security: []
+    parameters:
+      -
+        in: path
+        name: article
+        description: 'The article of the product.'
+        example: LtH6MFkBYHuVY98N
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Cars
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Products
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

@@ -20,5 +20,28 @@ class ProductService
         private Storage $storageModel
     ) {}
 
+    public function getProductsByCarBrandAndModel(string $brand, string $model, ?string $category = null)
+    {
+        $products = $this->productModel::query()
+            ->with('storages')
+            ->whereRelation('car', function ($query) use ($brand, $model) {
+                $query->where([
+                    ['brand', $brand],
+                    ['model', $model]
+                ]);
+            });
 
+        if ($category)
+            $products->whereRelation('category', 'name', '=', $category);
+
+        return $products->get();
+    }
+
+    public function getProductByArticle(string $article)
+    {
+        return $this->productModel::query()
+            ->where('article', $article)
+            ->with(['group_of_analogs.products.storages'])
+            ->firstOrFail();
+    }
 }

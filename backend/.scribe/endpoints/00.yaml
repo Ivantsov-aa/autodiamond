@@ -1,0 +1,233 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Log in and get a bearer token.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: user@test.test
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: user1234
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: user@test.test
+      password: user1234
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":25,"name":"\u0420\u043e\u0437\u0430\u043b\u0438\u043d\u0430","lastname":"\u0421\u043e\u043b\u043e\u0432\u044c\u0451\u0432\u0430","patronymic":null,"phone":"+12252668081","email":"veniamin03@example.com","role":"user"},"token":"hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: '{"message": "Bad credentials"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/signup
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Sign up a new user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The username.'
+        required: true
+        example: Will
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: 'The lastname.'
+        required: true
+        example: Smith
+        type: string
+        custom: []
+      patronymic:
+        name: patronymic
+        description: 'The user patronymic.'
+        required: false
+        example: repellat
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: "The user's phone number."
+        required: true
+        example: '+12252668081'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: "The user's email."
+        required: true
+        example: user@test.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: "The user's password."
+        required: true
+        example: '?:E]Mnbk5.n3{'
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: ''
+        required: true
+        example: eum
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: Will
+      lastname: Smith
+      patronymic: repellat
+      phone: '+12252668081'
+      email: user@test.com
+      password: '?:E]Mnbk5.n3{'
+      password_confirmation: eum
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message": "You are registered"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Deletes user authentication tokens.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"message": "Logged out"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer v6Pdabe38gh5Z41EDa6fVck'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retrieves authenticated user data with orders.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":26,"name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430","lastname":"\u041c\u0430\u0441\u043b\u043e\u0432","patronymic":null,"phone":"+12252668081","email":"eliseeva.olga@example.net","role":"user"}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6gfVZhbDakEcd1v6e8534aP'
+    controller: null
+    method: null
+    route: null
+    custom: []

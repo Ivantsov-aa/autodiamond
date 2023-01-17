@@ -21,13 +21,27 @@ class CarService
     {
         return $this->carModel::select('brand')
             ->distinct()
-            ->get();
+            ->get()
+            ->pluck('brand');
     }
 
     public function models(string $brand)
     {
         return $this->carModel::select('model')
             ->where('brand', $brand)
-            ->get();
+            ->distinct()
+            ->get()
+            ->pluck('model');
+    }
+
+    public function engines(string $brand, string $model)
+    {
+        return $this->carModel::select('engine')
+            ->where([
+                ['brand', $brand],
+                ['model', $model]
+            ])
+            ->get()
+            ->pluck('engine');
     }
 }

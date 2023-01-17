@@ -20,17 +20,20 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $types = ['товар', 'услуга'];
+        $type = $this->faker->boolean(90) ? 'товар' : 'услуга';
         $categories = Category::all();
         $cars = Car::all();
         $analogs = Analog::all();
+
+        if ($type === 'товар') $analog_id = $this->faker->boolean() ? $analogs->random()->id : null;
+        else $analog_id = null;
 
         return [
             'key' => Str::random(),
             'name' => Str::ucfirst($this->faker->word()),
             'description' => $this->faker->sentence(),
             'article' => Str::random(),
-            'type' => $this->faker->randomElement($types),
+            'type' => $type,
             'manufacturer' => $this->faker->company(),
             'country' => $this->faker->country(),
             'measure' => 'шт',
@@ -38,7 +41,7 @@ class ProductFactory extends Factory
             'warranty' => $this->faker->paragraph(),
             'category_id' => $this->faker->randomElement($categories->pluck('id')),
             'car_id' => $this->faker->randomElement($cars->pluck('id')),
-            'analog_id' => $this->faker->boolean(25) ? $analogs->random()->id : null
+            'analog_id' => $analog_id
         ];
     }
 }
