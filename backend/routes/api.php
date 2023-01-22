@@ -41,6 +41,10 @@ Route::prefix('products')
     ->group(function () {
         Route::get('/', 'getProductsByCarBrandAndModel')->name('getProductByBrandAndModel');
 
+        Route::get('/categories', 'getCategoriesByCarBrandAndModel')->name('getCategoriesByBrandAndModel');
+
+        Route::get('/search', 'search')->name('search');
+
         Route::get('/{article}', 'getProductByArticle')->name('getProductByArticle');
     });
 

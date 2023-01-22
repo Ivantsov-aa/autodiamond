@@ -38,8 +38,8 @@ class Category extends Model
     {
         return $this->hasMany(
             self::class,
-            'key',
-            'parent_key'
+            'parent_key',
+            'key'
         );
     }
 

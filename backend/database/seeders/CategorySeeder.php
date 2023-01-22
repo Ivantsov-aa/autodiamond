@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $parentCategories = Category::factory()
-            ->count(3)
+            ->count(10)
             ->create();
 
         foreach ($parentCategories as $parentCategory) {

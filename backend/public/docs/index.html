@@ -110,6 +110,13 @@
                                 <a href="#products-GETapi-products">Retrieves products found by car brand and model. If there is a category parameter in the request, products from
 this category will be extracted.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="products-GETapi-products-categories">
+                                <a href="#products-GETapi-products-categories">Retrieves categories found by car brand, model and parent category key.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="products-GETapi-products-search">
+                                <a href="#products-GETapi-products-search">Retrieves products found by search query. If there is a category parameter in the request, filters products by
+the category.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="products-GETapi-products--article-">
                                 <a href="#products-GETapi-products--article-">Retrieves product data found by the article.</a>
                             </li>
@@ -124,7 +131,7 @@ this category will be extracted.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 16, 2023</li>
+        <li>Last updated: January 22, 2023</li>
     </ul>
 </div>
 
@@ -195,15 +202,15 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 48
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;brands&quot;: [
-        &quot;Dolores&quot;,
-        &quot;Voluptatibus&quot;,
-        &quot;Aut&quot;
+        &quot;Est&quot;,
+        &quot;Ut&quot;,
+        &quot;Enim&quot;
     ]
 }</code>
  </pre>
@@ -323,17 +330,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 47
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;models&quot;: [
-        &quot;Aut&quot;,
-        &quot;Voluptatibus&quot;,
-        &quot;Id&quot;,
-        &quot;Consectetur&quot;
-    ]
+    &quot;models&quot;: []
 }</code>
  </pre>
     </span>
@@ -465,14 +467,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 46
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;engines&quot;: [
-        &quot;Perspiciatis&quot;
-    ]
+    &quot;engines&quot;: []
 }</code>
  </pre>
     </span>
@@ -620,12 +620,12 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 25,
+        &quot;id&quot;: 20,
         &quot;name&quot;: &quot;Розалина&quot;,
-        &quot;lastname&quot;: &quot;Соловьёва&quot;,
+        &quot;lastname&quot;: &quot;Богданов&quot;,
         &quot;patronymic&quot;: null,
         &quot;phone&quot;: &quot;+12252668081&quot;,
-        &quot;email&quot;: &quot;veniamin03@example.com&quot;,
+        &quot;email&quot;: &quot;pavel.trofimov@example.org&quot;,
         &quot;role&quot;: &quot;user&quot;
     },
     &quot;token&quot;: &quot;hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1&quot;
@@ -746,11 +746,11 @@ fetch(url, {
     --data "{
     \"name\": \"Will\",
     \"lastname\": \"Smith\",
-    \"patronymic\": \"repellat\",
+    \"patronymic\": \"vel\",
     \"phone\": \"+12252668081\",
     \"email\": \"user@test.com\",
-    \"password\": \"?:E]Mnbk5.n3{\",
-    \"password_confirmation\": \"eum\"
+    \"password\": \"G8\\\")T^v$?W\",
+    \"password_confirmation\": \"ducimus\"
 }"
 </code></pre></div>
 
@@ -768,11 +768,11 @@ const headers = {
 let body = {
     "name": "Will",
     "lastname": "Smith",
-    "patronymic": "repellat",
+    "patronymic": "vel",
     "phone": "+12252668081",
     "email": "user@test.com",
-    "password": "?:E]Mnbk5.n3{",
-    "password_confirmation": "eum"
+    "password": "G8\")T^v$?W",
+    "password_confirmation": "ducimus"
 };
 
 fetch(url, {
@@ -884,10 +884,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="patronymic"                data-endpoint="POSTapi-signup"
-               value="repellat"
+               value="vel"
                data-component="body">
     <br>
-<p>The user patronymic. Example: <code>repellat</code></p>
+<p>The user patronymic. Example: <code>vel</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -917,10 +917,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-signup"
-               value="?:E]Mnbk5.n3{"
+               value="G8")T^v$?W"
                data-component="body">
     <br>
-<p>The user's password. Example: <code>?:E]Mnbk5.n3{</code></p>
+<p>The user's password. Example: <code>G8")T^v$?W</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -928,10 +928,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password_confirmation"                data-endpoint="POSTapi-signup"
-               value="eum"
+               value="ducimus"
                data-component="body">
     <br>
-<p>Example: <code>eum</code></p>
+<p>Example: <code>ducimus</code></p>
         </div>
         </form>
 
@@ -1104,12 +1104,12 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 26,
-        &quot;name&quot;: &quot;Варвара&quot;,
-        &quot;lastname&quot;: &quot;Маслов&quot;,
+        &quot;id&quot;: 21,
+        &quot;name&quot;: &quot;Лилия&quot;,
+        &quot;lastname&quot;: &quot;Сафонов&quot;,
         &quot;patronymic&quot;: null,
         &quot;phone&quot;: &quot;+12252668081&quot;,
-        &quot;email&quot;: &quot;eliseeva.olga@example.net&quot;,
+        &quot;email&quot;: &quot;qmartynov@example.org&quot;,
         &quot;role&quot;: &quot;user&quot;
     }
 }</code>
@@ -1248,91 +1248,12 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 52
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;products&quot;: [
-        {
-            &quot;id&quot;: 4,
-            &quot;key&quot;: &quot;Wp6RWWIzBk94Ea2x&quot;,
-            &quot;name&quot;: &quot;Et&quot;,
-            &quot;description&quot;: &quot;Doloremque velit qui tenetur laborum repellat.&quot;,
-            &quot;article&quot;: &quot;B6pUH9XFNNfR6eBz&quot;,
-            &quot;type&quot;: &quot;услуга&quot;,
-            &quot;manufacturer&quot;: &quot;ОАО ТелеОрион&quot;,
-            &quot;country&quot;: &quot;Багамы&quot;,
-            &quot;measure&quot;: &quot;шт&quot;,
-            &quot;price&quot;: &quot;58.41&quot;,
-            &quot;warranty&quot;: &quot;Soluta dolorem repellat ut explicabo. Minima asperiores ad et blanditiis recusandae eaque.&quot;,
-            &quot;storages&quot;: [
-                {
-                    &quot;id&quot;: 5,
-                    &quot;name&quot;: &quot;Erem&quot;,
-                    &quot;city&quot;: &quot;Волгоград&quot;,
-                    &quot;address&quot;: &quot;Ерёменко 53&quot;,
-                    &quot;quantity&quot;: 9
-                },
-                {
-                    &quot;id&quot;: 9,
-                    &quot;name&quot;: &quot;Tresh&quot;,
-                    &quot;city&quot;: &quot;Волгоград&quot;,
-                    &quot;address&quot;: &quot;Землячки 39г&quot;,
-                    &quot;quantity&quot;: 9
-                },
-                {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Astr&quot;,
-                    &quot;city&quot;: &quot;Астрахань&quot;,
-                    &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
-                    &quot;quantity&quot;: 8
-                },
-                {
-                    &quot;id&quot;: 7,
-                    &quot;name&quot;: &quot;Kolos&quot;,
-                    &quot;city&quot;: &quot;Волгоград&quot;,
-                    &quot;address&quot;: &quot;Колосовая 12&quot;,
-                    &quot;quantity&quot;: 7
-                },
-                {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Astr&quot;,
-                    &quot;city&quot;: &quot;Астрахань&quot;,
-                    &quot;address&quot;: &quot;Боевая 2&quot;,
-                    &quot;quantity&quot;: 6
-                },
-                {
-                    &quot;id&quot;: 4,
-                    &quot;name&quot;: &quot;Kras&quot;,
-                    &quot;city&quot;: &quot;Краснодар&quot;,
-                    &quot;address&quot;: &quot;Российская 488&quot;,
-                    &quot;quantity&quot;: 6
-                },
-                {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Volzhsk&quot;,
-                    &quot;city&quot;: &quot;Волжский&quot;,
-                    &quot;address&quot;: &quot;Ленина 104а&quot;,
-                    &quot;quantity&quot;: 5
-                },
-                {
-                    &quot;id&quot;: 6,
-                    &quot;name&quot;: &quot;Ang&quot;,
-                    &quot;city&quot;: &quot;Волгоград&quot;,
-                    &quot;address&quot;: &quot;Ангарская 90&quot;,
-                    &quot;quantity&quot;: 4
-                },
-                {
-                    &quot;id&quot;: 8,
-                    &quot;name&quot;: &quot;Stal&quot;,
-                    &quot;city&quot;: &quot;Волгоград&quot;,
-                    &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
-                    &quot;quantity&quot;: 3
-                }
-            ]
-        }
-    ]
+    &quot;products&quot;: []
 }</code>
  </pre>
     </span>
@@ -1433,6 +1354,394 @@ access-control-allow-origin: *
             </div>
                 </form>
 
+                    <h2 id="products-GETapi-products-categories">Retrieves categories found by car brand, model and parent category key.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-categories">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://autodiamond.test/api/products/categories?brand=Dolores&amp;model=Consectetur&amp;parent=701" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://autodiamond.test/api/products/categories"
+);
+
+const params = {
+    "brand": "Dolores",
+    "model": "Consectetur",
+    "parent": "701",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-categories">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 51
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;categories&quot;: []
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-categories" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-categories"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-categories" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-categories"></code></pre>
+</span>
+<form id="form-GETapi-products-categories" data-method="GET"
+      data-path="api/products/categories"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-categories', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-categories"
+                    onclick="tryItOut('GETapi-products-categories');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-categories"
+                    onclick="cancelTryOut('GETapi-products-categories');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-categories" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/categories</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-products-categories"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-products-categories"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>brand</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="brand"                data-endpoint="GETapi-products-categories"
+               value="Dolores"
+               data-component="query">
+    <br>
+<p>The brand. Example: <code>Dolores</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="model"                data-endpoint="GETapi-products-categories"
+               value="Consectetur"
+               data-component="query">
+    <br>
+<p>The model. Example: <code>Consectetur</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>parent</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="parent"                data-endpoint="GETapi-products-categories"
+               value="701"
+               data-component="query">
+    <br>
+<p>The key of the parent category. Example: <code>701</code></p>
+            </div>
+                </form>
+
+                    <h2 id="products-GETapi-products-search">Retrieves products found by search query. If there is a category parameter in the request, filters products by
+the category.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-products-search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://autodiamond.test/api/products/search?search=ZVhu0pk3M6UimIIU&amp;category=quos+dolores" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://autodiamond.test/api/products/search"
+);
+
+const params = {
+    "search": "ZVhu0pk3M6UimIIU",
+    "category": "quos dolores",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-products-search">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 50
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;products&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;key&quot;: &quot;dAMjdTqzw5pObNa3&quot;,
+            &quot;name&quot;: &quot;Aperiam&quot;,
+            &quot;description&quot;: &quot;Repudiandae exercitationem expedita ut quae.&quot;,
+            &quot;article&quot;: &quot;ZVhu0pk3M6UimIIU&quot;,
+            &quot;type&quot;: &quot;товар&quot;,
+            &quot;manufacturer&quot;: &quot;МКК МясТелеком&quot;,
+            &quot;country&quot;: &quot;Доминиканская Республика&quot;,
+            &quot;measure&quot;: &quot;шт&quot;,
+            &quot;price&quot;: &quot;25.63&quot;,
+            &quot;warranty&quot;: &quot;Temporibus quae eum cupiditate non quo nihil omnis ea. Molestiae in temporibus est atque optio. Officia voluptatem fugit eligendi explicabo dolor voluptas.&quot;,
+            &quot;storages&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Astr&quot;,
+                    &quot;city&quot;: &quot;Астрахань&quot;,
+                    &quot;address&quot;: &quot;Боевая 2&quot;,
+                    &quot;quantity&quot;: 10
+                },
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Volzhsk&quot;,
+                    &quot;city&quot;: &quot;Волжский&quot;,
+                    &quot;address&quot;: &quot;Ленина 104а&quot;,
+                    &quot;quantity&quot;: 9
+                },
+                {
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Astr&quot;,
+                    &quot;city&quot;: &quot;Астрахань&quot;,
+                    &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                    &quot;quantity&quot;: 9
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;name&quot;: &quot;Kras&quot;,
+                    &quot;city&quot;: &quot;Краснодар&quot;,
+                    &quot;address&quot;: &quot;Российская 488&quot;,
+                    &quot;quantity&quot;: 9
+                },
+                {
+                    &quot;id&quot;: 6,
+                    &quot;name&quot;: &quot;Ang&quot;,
+                    &quot;city&quot;: &quot;Волгоград&quot;,
+                    &quot;address&quot;: &quot;Ангарская 90&quot;,
+                    &quot;quantity&quot;: 9
+                },
+                {
+                    &quot;id&quot;: 7,
+                    &quot;name&quot;: &quot;Kolos&quot;,
+                    &quot;city&quot;: &quot;Волгоград&quot;,
+                    &quot;address&quot;: &quot;Колосовая 12&quot;,
+                    &quot;quantity&quot;: 8
+                },
+                {
+                    &quot;id&quot;: 5,
+                    &quot;name&quot;: &quot;Erem&quot;,
+                    &quot;city&quot;: &quot;Волгоград&quot;,
+                    &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                    &quot;quantity&quot;: 7
+                },
+                {
+                    &quot;id&quot;: 8,
+                    &quot;name&quot;: &quot;Stal&quot;,
+                    &quot;city&quot;: &quot;Волгоград&quot;,
+                    &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                    &quot;quantity&quot;: 6
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;Tresh&quot;,
+                    &quot;city&quot;: &quot;Волгоград&quot;,
+                    &quot;address&quot;: &quot;Землячки 39г&quot;,
+                    &quot;quantity&quot;: 2
+                }
+            ]
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-products-search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-products-search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-products-search" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-products-search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-products-search"></code></pre>
+</span>
+<form id="form-GETapi-products-search" data-method="GET"
+      data-path="api/products/search"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products-search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-products-search"
+                    onclick="tryItOut('GETapi-products-search');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-products-search"
+                    onclick="cancelTryOut('GETapi-products-search');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-products-search" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/products/search</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-products-search"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-products-search"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="search"                data-endpoint="GETapi-products-search"
+               value="ZVhu0pk3M6UimIIU"
+               data-component="query">
+    <br>
+<p>The search query. Example: <code>ZVhu0pk3M6UimIIU</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="category"                data-endpoint="GETapi-products-search"
+               value="quos dolores"
+               data-component="query">
+    <br>
+<p>The category of the products. Example: <code>quos dolores</code></p>
+            </div>
+                </form>
+
                     <h2 id="products-GETapi-products--article-">Retrieves product data found by the article.</h2>
 
 <p>
@@ -1446,14 +1755,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://autodiamond.test/api/products/LtH6MFkBYHuVY98N" \
+    --get "http://autodiamond.test/api/products/ZVhu0pk3M6UimIIU" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://autodiamond.test/api/products/LtH6MFkBYHuVY98N"
+    "http://autodiamond.test/api/products/ZVhu0pk3M6UimIIU"
 );
 
 const headers = {
@@ -1479,24 +1788,2057 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 49
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;product&quot;: {
-        &quot;id&quot;: 1,
-        &quot;key&quot;: &quot;el0So6xDrrpVWi5V&quot;,
-        &quot;name&quot;: &quot;Non&quot;,
-        &quot;description&quot;: &quot;Atque sed qui occaecati magni in et.&quot;,
-        &quot;article&quot;: &quot;LtH6MFkBYHuVY98N&quot;,
-        &quot;type&quot;: &quot;услуга&quot;,
-        &quot;manufacturer&quot;: &quot;МФО МетизГор&quot;,
-        &quot;country&quot;: &quot;Исландия&quot;,
+        &quot;id&quot;: 2,
+        &quot;key&quot;: &quot;dAMjdTqzw5pObNa3&quot;,
+        &quot;name&quot;: &quot;Aperiam&quot;,
+        &quot;description&quot;: &quot;Repudiandae exercitationem expedita ut quae.&quot;,
+        &quot;article&quot;: &quot;ZVhu0pk3M6UimIIU&quot;,
+        &quot;type&quot;: &quot;товар&quot;,
+        &quot;manufacturer&quot;: &quot;МКК МясТелеком&quot;,
+        &quot;country&quot;: &quot;Доминиканская Республика&quot;,
         &quot;measure&quot;: &quot;шт&quot;,
-        &quot;price&quot;: &quot;95.61&quot;,
-        &quot;warranty&quot;: &quot;Maiores sapiente suscipit consequatur doloribus. Voluptas quo ipsam distinctio est. Modi qui nam ut. Aut atque illum accusamus aut sunt ad quisquam.&quot;,
-        &quot;group_of_analogs&quot;: null
+        &quot;price&quot;: &quot;25.63&quot;,
+        &quot;warranty&quot;: &quot;Temporibus quae eum cupiditate non quo nihil omnis ea. Molestiae in temporibus est atque optio. Officia voluptatem fugit eligendi explicabo dolor voluptas.&quot;,
+        &quot;group_of_analogs&quot;: {
+            &quot;id&quot;: 2,
+            &quot;group_id&quot;: &quot;UOFOvFSFHHWDao85&quot;,
+            &quot;products&quot;: [
+                {
+                    &quot;id&quot;: 2,
+                    &quot;key&quot;: &quot;dAMjdTqzw5pObNa3&quot;,
+                    &quot;name&quot;: &quot;Aperiam&quot;,
+                    &quot;description&quot;: &quot;Repudiandae exercitationem expedita ut quae.&quot;,
+                    &quot;article&quot;: &quot;ZVhu0pk3M6UimIIU&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МКК МясТелеком&quot;,
+                    &quot;country&quot;: &quot;Доминиканская Республика&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;25.63&quot;,
+                    &quot;warranty&quot;: &quot;Temporibus quae eum cupiditate non quo nihil omnis ea. Molestiae in temporibus est atque optio. Officia voluptatem fugit eligendi explicabo dolor voluptas.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 2
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 23,
+                    &quot;key&quot;: &quot;Do3I4OTa92VMKUBw&quot;,
+                    &quot;name&quot;: &quot;Nam&quot;,
+                    &quot;description&quot;: &quot;Odit architecto voluptas sequi quibusdam voluptate.&quot;,
+                    &quot;article&quot;: &quot;ga8nuPULGYYrKkyf&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МФО ТяжМетизCибКомплекс&quot;,
+                    &quot;country&quot;: &quot;Гибралтар&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;64.11&quot;,
+                    &quot;warranty&quot;: &quot;Modi saepe voluptatem tempora itaque quasi omnis. Dolore et harum autem laboriosam. Officia quia nihil assumenda et ut voluptate. Commodi voluptate libero dolorum.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 47,
+                    &quot;key&quot;: &quot;MayfeTGX53KBQR9T&quot;,
+                    &quot;name&quot;: &quot;Doloribus&quot;,
+                    &quot;description&quot;: &quot;Accusamus quibusdam aut earum.&quot;,
+                    &quot;article&quot;: &quot;vYvYqPT9pn7PxZ7I&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО КазТрансТомск&quot;,
+                    &quot;country&quot;: &quot;Белиз&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;9.66&quot;,
+                    &quot;warranty&quot;: &quot;Alias corporis reprehenderit placeat vero iure rem ut. Aut minima vel quisquam. Inventore ducimus vel dicta error accusamus voluptas eligendi. Et laboriosam et voluptas ipsum nihil sed.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 51,
+                    &quot;key&quot;: &quot;hj7Xg3NauYlcMEXF&quot;,
+                    &quot;name&quot;: &quot;A&quot;,
+                    &quot;description&quot;: &quot;Sit quia voluptate quas amet accusantium natus adipisci.&quot;,
+                    &quot;article&quot;: &quot;XGlZ1imACg6K1fme&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ЗАО CибУралФинанс&quot;,
+                    &quot;country&quot;: &quot;Кокосовые острова&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;88.92&quot;,
+                    &quot;warranty&quot;: &quot;Odit corrupti nulla non et iure. Modi assumenda quisquam ratione nemo. Odio expedita pariatur laborum non reiciendis sapiente aut.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 69,
+                    &quot;key&quot;: &quot;ZVhhTlBcLHtQij6p&quot;,
+                    &quot;name&quot;: &quot;Et&quot;,
+                    &quot;description&quot;: &quot;Unde ad consequatur reiciendis illo accusantium voluptas corrupti.&quot;,
+                    &quot;article&quot;: &quot;BrBLzQCEQ5B76SNu&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО ЭлектроМясАлмазКомплекс&quot;,
+                    &quot;country&quot;: &quot;Латвия&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;78.73&quot;,
+                    &quot;warranty&quot;: &quot;Dolore tempora dolore in mollitia vel aut. Soluta iste consequuntur temporibus ratione qui. Eos eligendi et qui sequi dolor illo odio. Voluptate id quod ut ullam accusamus.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 114,
+                    &quot;key&quot;: &quot;Ga9HytMjQ8p5K67d&quot;,
+                    &quot;name&quot;: &quot;Dolor&quot;,
+                    &quot;description&quot;: &quot;Praesentium mollitia quod in commodi.&quot;,
+                    &quot;article&quot;: &quot;hL7CSrrfcgmnCEh2&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО РечМяс&quot;,
+                    &quot;country&quot;: &quot;Американское Самоа&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;69.05&quot;,
+                    &quot;warranty&quot;: &quot;Illum quo perferendis dolorum eligendi. Ea id fugit est voluptatibus. Pariatur mollitia corrupti quo voluptatem quo necessitatibus voluptatibus. Voluptate at est laborum id quia atque. Consequatur sunt corporis expedita error cum excepturi.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 126,
+                    &quot;key&quot;: &quot;J9W9OytzKwNARAtV&quot;,
+                    &quot;name&quot;: &quot;Dolore&quot;,
+                    &quot;description&quot;: &quot;Nihil nisi delectus repudiandae voluptatibus sed in officia qui.&quot;,
+                    &quot;article&quot;: &quot;tQlty8mkVCMbxY0Q&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО КрепХмельТекстильЦентр&quot;,
+                    &quot;country&quot;: &quot;Бельгия&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;63.74&quot;,
+                    &quot;warranty&quot;: &quot;Porro voluptas laboriosam sed. Fugiat saepe est tempora molestias expedita labore. Est sapiente beatae impedit magni atque qui omnis atque.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 150,
+                    &quot;key&quot;: &quot;xmXbJWIxeVoSXS7R&quot;,
+                    &quot;name&quot;: &quot;Ipsum&quot;,
+                    &quot;description&quot;: &quot;Molestiae rem praesentium exercitationem sapiente tempore sed facilis.&quot;,
+                    &quot;article&quot;: &quot;5cAQxF2zBfUdTcsU&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО ЮпитерЦементСеверЛизинг&quot;,
+                    &quot;country&quot;: &quot;Кипр&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;79.40&quot;,
+                    &quot;warranty&quot;: &quot;Unde quod cumque pariatur hic maiores est molestiae totam. Architecto nam sapiente aut. Itaque temporibus qui ipsum rerum dolor quos.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 151,
+                    &quot;key&quot;: &quot;1XwypiH1vS3BEtOU&quot;,
+                    &quot;name&quot;: &quot;Corrupti&quot;,
+                    &quot;description&quot;: &quot;Nihil illo voluptas voluptatem possimus dicta et.&quot;,
+                    &quot;article&quot;: &quot;zY5U9gIi7Y9O5JKt&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МКК СеверСантех&quot;,
+                    &quot;country&quot;: &quot;Мьянма&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;81.46&quot;,
+                    &quot;warranty&quot;: &quot;Eum ut officia autem. Iste hic aspernatur dolores facilis. Consequatur ipsum et est. Autem est quia sint non mollitia.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 197,
+                    &quot;key&quot;: &quot;vgAwIlrEEApa6JTb&quot;,
+                    &quot;name&quot;: &quot;Qui&quot;,
+                    &quot;description&quot;: &quot;Delectus dicta maxime tempora facilis at qui vero.&quot;,
+                    &quot;article&quot;: &quot;OLexWp0kfe8CuteG&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО Компания АсбоцементВектор&quot;,
+                    &quot;country&quot;: &quot;Великобритания&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;84.72&quot;,
+                    &quot;warranty&quot;: &quot;Enim laudantium quia quasi maiores alias. Modi rerum eligendi sunt deserunt. Possimus consequatur sed repellendus in voluptas vero voluptatem.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 202,
+                    &quot;key&quot;: &quot;JiNlfIgaZW3NmavB&quot;,
+                    &quot;name&quot;: &quot;Aut&quot;,
+                    &quot;description&quot;: &quot;Numquam tempora provident sit aut rem velit.&quot;,
+                    &quot;article&quot;: &quot;gcdfwmoS6w1LM3UZ&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО Алмаз&quot;,
+                    &quot;country&quot;: &quot;Колумбия&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;56.71&quot;,
+                    &quot;warranty&quot;: &quot;Nesciunt praesentium voluptates tempora minima laudantium accusamus. Eum culpa nobis cupiditate illum architecto. Animi est dolorum itaque saepe.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 204,
+                    &quot;key&quot;: &quot;3uH5ZjVkziLynsVg&quot;,
+                    &quot;name&quot;: &quot;Dolor&quot;,
+                    &quot;description&quot;: &quot;Nulla corporis magni consequuntur atque est officia magni.&quot;,
+                    &quot;article&quot;: &quot;8E7Z4jHZfjrFb4MP&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО РыбСофтХоз-H&quot;,
+                    &quot;country&quot;: &quot;Польша&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;54.67&quot;,
+                    &quot;warranty&quot;: &quot;Sed a provident quis mollitia. Praesentium tempore qui quisquam consectetur debitis aut error. Quis vel pariatur sint culpa perspiciatis. At cumque id quis vel culpa sunt sit.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 241,
+                    &quot;key&quot;: &quot;paqrk3wp2I5ZBItm&quot;,
+                    &quot;name&quot;: &quot;Sequi&quot;,
+                    &quot;description&quot;: &quot;Magni ut nihil aliquid officia sunt quia.&quot;,
+                    &quot;article&quot;: &quot;fzrXA49za515Tkev&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МФО МикроЖелДорМетизПром&quot;,
+                    &quot;country&quot;: &quot;Танзания&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;50.11&quot;,
+                    &quot;warranty&quot;: &quot;Ea necessitatibus sunt beatae sit illum nemo assumenda. Qui culpa eius culpa praesentium. Dolorem tenetur aut consectetur fugiat accusamus laboriosam ut.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 257,
+                    &quot;key&quot;: &quot;uZ5K8IvHeMqKZ1Bt&quot;,
+                    &quot;name&quot;: &quot;Porro&quot;,
+                    &quot;description&quot;: &quot;Quibusdam facere iste optio natus.&quot;,
+                    &quot;article&quot;: &quot;xGgz3AKoCtSjQPhz&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МКК ТелеМикро&quot;,
+                    &quot;country&quot;: &quot;Никарагуа&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;85.12&quot;,
+                    &quot;warranty&quot;: &quot;Quos omnis pariatur placeat eligendi labore. Sed doloribus qui et et dolor. Tenetur magnam voluptatem hic eligendi. Voluptas sunt ratione a architecto ex eius ad.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 2
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 303,
+                    &quot;key&quot;: &quot;E3WTqa17r7PwboNA&quot;,
+                    &quot;name&quot;: &quot;Sit&quot;,
+                    &quot;description&quot;: &quot;Eveniet voluptatem tempora repellat illo quos cum reiciendis.&quot;,
+                    &quot;article&quot;: &quot;z1t8MnwdPScEDLH4&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МКК ХмельРосЦемент&quot;,
+                    &quot;country&quot;: &quot;Гамбия&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;45.47&quot;,
+                    &quot;warranty&quot;: &quot;Consequatur dolor autem quisquam ut sed iure est. Enim qui eligendi et alias repudiandae saepe. Aliquid corporis velit odit sint.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 312,
+                    &quot;key&quot;: &quot;Z7AMofWRZDnECOBX&quot;,
+                    &quot;name&quot;: &quot;Aliquam&quot;,
+                    &quot;description&quot;: &quot;Est quisquam voluptatem voluptatem voluptatem ratione molestiae aut.&quot;,
+                    &quot;article&quot;: &quot;FrSnpd7GLTQnFpjH&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО БухКазIT-М&quot;,
+                    &quot;country&quot;: &quot;Уганда&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;86.31&quot;,
+                    &quot;warranty&quot;: &quot;Velit sapiente expedita officiis et. Officia non unde ut assumenda. Velit rerum eum dignissimos beatae quod quas assumenda. Quibusdam non recusandae architecto ut.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 328,
+                    &quot;key&quot;: &quot;56ccOfVEZWN14aVi&quot;,
+                    &quot;name&quot;: &quot;Et&quot;,
+                    &quot;description&quot;: &quot;Expedita quas aut ea architecto ut ullam aut.&quot;,
+                    &quot;article&quot;: &quot;G11ucDIFOqBPzJZe&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО Компания АсбоцементВостокТелекомТрест&quot;,
+                    &quot;country&quot;: &quot;Тимор-лесте&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;17.48&quot;,
+                    &quot;warranty&quot;: &quot;Sed qui expedita doloribus ut reiciendis. Veniam repellendus necessitatibus labore eos. Aut quis iure perferendis aspernatur exercitationem illo.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 2
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 347,
+                    &quot;key&quot;: &quot;SKlVxpLWhvjoPTNn&quot;,
+                    &quot;name&quot;: &quot;Labore&quot;,
+                    &quot;description&quot;: &quot;Similique vitae ducimus velit laboriosam alias.&quot;,
+                    &quot;article&quot;: &quot;6iBqs0bYLLEOXACQ&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ОАО ТомскНефтьКазаньМашина&quot;,
+                    &quot;country&quot;: &quot;Сингапур&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;23.06&quot;,
+                    &quot;warranty&quot;: &quot;Fugit ut consequatur et distinctio aut nihil dolor vitae. Ad totam necessitatibus dolores odio voluptatibus ut. Vel quidem minus at et. Et mollitia velit culpa amet maxime.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 1
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 362,
+                    &quot;key&quot;: &quot;qUbDVes134AY1eGm&quot;,
+                    &quot;name&quot;: &quot;Officia&quot;,
+                    &quot;description&quot;: &quot;Quo doloremque laborum nostrum.&quot;,
+                    &quot;article&quot;: &quot;PTex8c3y8iW31Z4W&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО Компания ГаражТомск&quot;,
+                    &quot;country&quot;: &quot;Британская Территория в Индийском Океане&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;81.15&quot;,
+                    &quot;warranty&quot;: &quot;Et tempore ab itaque dolore quia. Aut commodi voluptatem quis sint corrupti laborum. Minus vero ea error sed.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 385,
+                    &quot;key&quot;: &quot;1YUhCczkEqdOvXNT&quot;,
+                    &quot;name&quot;: &quot;Minima&quot;,
+                    &quot;description&quot;: &quot;Animi ut porro illo explicabo velit.&quot;,
+                    &quot;article&quot;: &quot;2GRk0FdO7guOWNA4&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МФО Хмель&quot;,
+                    &quot;country&quot;: &quot;Новая Каледония&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;88.71&quot;,
+                    &quot;warranty&quot;: &quot;Qui quia sit voluptatum itaque velit eveniet. Nihil vel voluptatum omnis qui similique. Velit accusantium eligendi quis facere sed.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 3
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 394,
+                    &quot;key&quot;: &quot;9i5Vb50GgzcmvzTF&quot;,
+                    &quot;name&quot;: &quot;Voluptas&quot;,
+                    &quot;description&quot;: &quot;Quaerat eveniet dolores id.&quot;,
+                    &quot;article&quot;: &quot;04UgNDphtBUuVlSP&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО Инж&quot;,
+                    &quot;country&quot;: &quot;Польша&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;48.43&quot;,
+                    &quot;warranty&quot;: &quot;Ipsam iure explicabo adipisci neque recusandae. Quo sunt saepe non at.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 408,
+                    &quot;key&quot;: &quot;2OGorwEb2h0TnAZ6&quot;,
+                    &quot;name&quot;: &quot;Consectetur&quot;,
+                    &quot;description&quot;: &quot;Ab itaque tenetur dignissimos sequi nemo.&quot;,
+                    &quot;article&quot;: &quot;VIctqdSKgqjBvc09&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МФО Север&quot;,
+                    &quot;country&quot;: &quot;Коста-Рика&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;96.79&quot;,
+                    &quot;warranty&quot;: &quot;Sapiente quisquam quia incidunt reiciendis. In porro temporibus autem voluptatem. Veniam et beatae assumenda sint praesentium in aperiam vel.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 412,
+                    &quot;key&quot;: &quot;rqglvqdHLSS2iTSs&quot;,
+                    &quot;name&quot;: &quot;Sed&quot;,
+                    &quot;description&quot;: &quot;Corrupti sed impedit assumenda a iusto voluptas error.&quot;,
+                    &quot;article&quot;: &quot;Cpn0FvugNMFgKa1a&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ЗАО ОмскМетизМотор&quot;,
+                    &quot;country&quot;: &quot;Белиз&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;69.00&quot;,
+                    &quot;warranty&quot;: &quot;Eligendi necessitatibus in quis natus et voluptatem mollitia. Blanditiis voluptas eveniet exercitationem quo blanditiis enim nihil. Totam repellendus perferendis deserunt minus omnis.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 6
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 3
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 455,
+                    &quot;key&quot;: &quot;GbYgWEL0bDAAm81p&quot;,
+                    &quot;name&quot;: &quot;Omnis&quot;,
+                    &quot;description&quot;: &quot;Mollitia amet est sit reiciendis.&quot;,
+                    &quot;article&quot;: &quot;qJAxbPgTxo9GUMnJ&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;ООО ХозТрансАлмазЦентр&quot;,
+                    &quot;country&quot;: &quot;Словакия&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;25.53&quot;,
+                    &quot;warranty&quot;: &quot;Consectetur quibusdam accusamus est aspernatur. Autem iusto aperiam iure ex explicabo mollitia cupiditate. Laborum natus illo deserunt quam voluptas. Distinctio et deleniti animi ipsum et repudiandae.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 7
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 2
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 456,
+                    &quot;key&quot;: &quot;hC6jG1neTQXgBTEm&quot;,
+                    &quot;name&quot;: &quot;Voluptate&quot;,
+                    &quot;description&quot;: &quot;Dicta alias cupiditate nihil nam a.&quot;,
+                    &quot;article&quot;: &quot;03XBXaNsABLBmVZb&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МФО Вектор&quot;,
+                    &quot;country&quot;: &quot;Израиль&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;25.39&quot;,
+                    &quot;warranty&quot;: &quot;Eaque nulla corrupti neque. Aut minus qui voluptatem veritatis. Aperiam et minima fuga maxime doloremque sapiente. Expedita vel saepe maiores architecto modi libero.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 9
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 4
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: 464,
+                    &quot;key&quot;: &quot;CgLG1mmYpoycBnCc&quot;,
+                    &quot;name&quot;: &quot;Ducimus&quot;,
+                    &quot;description&quot;: &quot;Enim et aut culpa ducimus.&quot;,
+                    &quot;article&quot;: &quot;1aPUcUCJUzYHXk82&quot;,
+                    &quot;type&quot;: &quot;товар&quot;,
+                    &quot;manufacturer&quot;: &quot;МКК СеверНефть&quot;,
+                    &quot;country&quot;: &quot;Гана&quot;,
+                    &quot;measure&quot;: &quot;шт&quot;,
+                    &quot;price&quot;: &quot;63.60&quot;,
+                    &quot;warranty&quot;: &quot;Nisi illum vero est expedita sed vel sed. Quod tempore corrupti quo praesentium et eveniet et. Id est eligendi omnis.&quot;,
+                    &quot;storages&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Kolos&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Колосовая 12&quot;,
+                            &quot;quantity&quot;: 10
+                        },
+                        {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Ang&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ангарская 90&quot;,
+                            &quot;quantity&quot;: 8
+                        },
+                        {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Боевая 2&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Astr&quot;,
+                            &quot;city&quot;: &quot;Астрахань&quot;,
+                            &quot;address&quot;: &quot;Б.Хмельницкого 5&quot;,
+                            &quot;quantity&quot;: 5
+                        },
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;Tresh&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Землячки 39г&quot;,
+                            &quot;quantity&quot;: 3
+                        },
+                        {
+                            &quot;id&quot;: 8,
+                            &quot;name&quot;: &quot;Stal&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Проспект героев сталинграда 21&quot;,
+                            &quot;quantity&quot;: 1
+                        },
+                        {
+                            &quot;id&quot;: 1,
+                            &quot;name&quot;: &quot;Volzhsk&quot;,
+                            &quot;city&quot;: &quot;Волжский&quot;,
+                            &quot;address&quot;: &quot;Ленина 104а&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 4,
+                            &quot;name&quot;: &quot;Kras&quot;,
+                            &quot;city&quot;: &quot;Краснодар&quot;,
+                            &quot;address&quot;: &quot;Российская 488&quot;,
+                            &quot;quantity&quot;: 0
+                        },
+                        {
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;Erem&quot;,
+                            &quot;city&quot;: &quot;Волгоград&quot;,
+                            &quot;address&quot;: &quot;Ерёменко 53&quot;,
+                            &quot;quantity&quot;: 0
+                        }
+                    ]
+                }
+            ]
+        }
     }
 }</code>
  </pre>
@@ -1569,10 +3911,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="article"                data-endpoint="GETapi-products--article-"
-               value="LtH6MFkBYHuVY98N"
+               value="ZVhu0pk3M6UimIIU"
                data-component="url">
     <br>
-<p>The article of the product. Example: <code>LtH6MFkBYHuVY98N</code></p>
+<p>The article of the product. Example: <code>ZVhu0pk3M6UimIIU</code></p>
             </div>
                     </form>
 

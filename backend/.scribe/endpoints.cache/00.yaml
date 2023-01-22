@@ -45,7 +45,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":25,"name":"\u0420\u043e\u0437\u0430\u043b\u0438\u043d\u0430","lastname":"\u0421\u043e\u043b\u043e\u0432\u044c\u0451\u0432\u0430","patronymic":null,"phone":"+12252668081","email":"veniamin03@example.com","role":"user"},"token":"hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1"}'
+        content: '{"data":{"id":20,"name":"\u0420\u043e\u0437\u0430\u043b\u0438\u043d\u0430","lastname":"\u0411\u043e\u0433\u0434\u0430\u043d\u043e\u0432","patronymic":null,"phone":"+12252668081","email":"pavel.trofimov@example.org","role":"user"},"token":"hhjhfddsdghjhjjjhggffsdsdgvvt435dffggs4|1"}'
         headers: []
         description: ''
         custom: []
@@ -100,7 +100,7 @@ endpoints:
         name: patronymic
         description: 'The user patronymic.'
         required: false
-        example: repellat
+        example: vel
         type: string
         custom: []
       phone:
@@ -121,24 +121,24 @@ endpoints:
         name: password
         description: "The user's password."
         required: true
-        example: '?:E]Mnbk5.n3{'
+        example: 'G8")T^v$?W'
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: eum
+        example: ducimus
         type: string
         custom: []
     cleanBodyParameters:
       name: Will
       lastname: Smith
-      patronymic: repellat
+      patronymic: vel
       phone: '+12252668081'
       email: user@test.com
-      password: '?:E]Mnbk5.n3{'
-      password_confirmation: eum
+      password: 'G8")T^v$?W'
+      password_confirmation: ducimus
     fileParameters: []
     responses:
       -
@@ -188,7 +188,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v6Pdabe38gh5Z41EDa6fVck'
+      - 'Bearer hbkfvc6Z61ge85VdD3Ea4Pa'
     controller: null
     method: null
     route: null
@@ -220,7 +220,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":26,"name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430","lastname":"\u041c\u0430\u0441\u043b\u043e\u0432","patronymic":null,"phone":"+12252668081","email":"eliseeva.olga@example.net","role":"user"}}'
+        content: '{"data":{"id":21,"name":"\u041b\u0438\u043b\u0438\u044f","lastname":"\u0421\u0430\u0444\u043e\u043d\u043e\u0432","patronymic":null,"phone":"+12252668081","email":"qmartynov@example.org","role":"user"}}'
         headers: []
         description: ''
         custom: []
@@ -228,7 +228,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6gfVZhbDakEcd1v6e8534aP'
+      - 'Bearer VhP6edk4f65D8gZacb3avE1'
     controller: null
     method: null
     route: null

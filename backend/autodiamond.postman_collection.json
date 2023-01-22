@@ -270,13 +270,87 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{api}}products/dolores/id",
+									"raw": "{{api}}products/?brand=dolores&model=id",
 									"host": [
 										"{{api}}products"
 									],
 									"path": [
-										"dolores",
-										"id"
+										""
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "nulla est",
+											"disabled": true
+										},
+										{
+											"key": "brand",
+											"value": "dolores"
+										},
+										{
+											"key": "model",
+											"value": "id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCategoriesByCarBrandAndModel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api}}products/categories/?brand=Ut&model=Aut&parent=701",
+									"host": [
+										"{{api}}products"
+									],
+									"path": [
+										"categories",
+										""
+									],
+									"query": [
+										{
+											"key": "brand",
+											"value": "Ut"
+										},
+										{
+											"key": "model",
+											"value": "Aut"
+										},
+										{
+											"key": "parent",
+											"value": "701"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api}}products/search?search=OzzhOM8zrb6D2l0a",
+									"host": [
+										"{{api}}products"
+									],
+									"path": [
+										"search"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "OzzhOM8zrb6D2l0a"
+										},
+										{
+											"key": "category",
+											"value": "quos dolores",
+											"disabled": true
+										}
 									]
 								}
 							},
