@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 import Wrapper from "./wrapper";
@@ -8,11 +8,47 @@ import PrivacyInfo from "./components/personal/privacy-info";
 import Orders from "./components/personal/orders";
 import TermsService from "./components/personal/terms-service";
 
+let url = 'http://avd-backend.veon-tech.ru';
+
 const App = (props) => {
   const [isLogged, changeLogged] = useState(null);
   const [authUser, setAuthUser] = useState(null);
+  const [catalog, setCatalog] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    loadCarsBrandToCatalog();
+  }, [])
+
+  const loadCarsBrandToCatalog = async () => {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    };
+
+
+    await fetch(`${url}/api/cars/brands`, {
+      method: 'GET',
+      headers
+    })
+      .then(response => response.json())
+      .then(result => {
+        let catalogToState = [];
+
+        result.brands.forEach(brand => {
+          fetch(url + '/api/cars/models?brand=' + brand, {
+            method: 'GET',
+            headers
+          })
+            .then(response => response.json())
+            .then(result => {
+              catalogToState.push({ logo: './images/brand-logo/geely-logo.svg', name: brand, models: result.models });
+              setCatalog([...catalogToState]);
+            })
+        });
+      })
+  }
 
   const handleLogIn = (data) => {
     changeLogged(true);
@@ -49,7 +85,11 @@ const App = (props) => {
           location={location}
           isLogged={isLogged}
           authUser={authUser}
-          handleLogOut={handleLogOut} />}
+          catalog={catalog}
+          url={url}
+          handleLogOut={handleLogOut}
+          navigate={navigate}
+        />}
         />
         <Route path='/login/*' element={<AuthorizationContainer
           handleLogIn={handleLogIn}

@@ -27,7 +27,7 @@ class SearchForm extends React.Component {
                         <div className='select-wrapper'>
                             <select onChange={this.setChosenBrand} value={chosenBrand}>
                                 <option>Марка</option>
-                                {catalog.map((brand, i) => (
+                                {catalog && catalog.map((brand, i) => (
                                     <option value={brand.name} key={i}>{brand.name}</option>
                                 ))}
                             </select>
@@ -35,7 +35,7 @@ class SearchForm extends React.Component {
                         <div className='select-wrapper'>
                             <select>
                                 <option>Модель</option>
-                                {catalog.map(brand => chosenBrand === brand.name ?
+                                {catalog && catalog.map(brand => chosenBrand === brand.name ?
                                     brand.models.map((model, i) => (
                                         <option key={i}>{model}</option>
                                     ))

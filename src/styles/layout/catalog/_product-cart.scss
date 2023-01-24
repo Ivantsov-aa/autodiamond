@@ -1,0 +1,200 @@
+.product-cart__wrapper {
+    @include block-pos;
+    padding-bottom: 70px;
+
+    .product-cart {
+        display: flex;
+        padding: 6px 0 50px;
+
+        .photo__wrapper {
+            width: 449px;
+            height: 449px;
+            padding: 130px;
+            border: 2px solid #000;
+            margin-right: 107px;
+            border-radius: 5px;
+
+            img {
+                width: 190px;
+            }
+        }
+
+        .product-cart__description {
+            @include font-params(500, 28px, 34px);
+            padding-top: 50px;
+
+            h2 {
+                @include font-params(600, 28px, 34px);
+                margin-bottom: 30px;
+            }
+
+            p {
+                margin-bottom: 15px;
+
+                span {
+                    @include font-params(400, 28px, 34px);
+
+                }
+            }
+
+        }
+
+        .product-cart__footer {
+            display: flex;
+            align-items: center;
+            padding-top: 44px;
+            justify-content: space-between;
+
+            p {
+                @include font-params(500, 36px, 44px);
+                color: #0DA500;
+                margin: 0;
+            }
+
+            >div {
+                display: flex;
+                align-items: center;
+                border: 1px solid #F98600;
+                border-radius: 5px;
+
+                p {
+                    color: $link_color;
+                    margin: 0;
+                }
+
+                button {
+                    @include font-params(400, 36px, 44px);
+                    padding: 16px 25px 15px 20px;
+
+                    &:last-child {
+                        padding: 15px 20px 16px 25px;
+
+                    }
+                }
+            }
+
+            >button {
+                @include font-params(500, 28px, 34px);
+                color: #fff;
+                background-color: #F98600;
+                border-radius: 5px;
+                width: 345px;
+                height: 75px;
+            }
+        }
+    }
+
+    .analogue-product__flex {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+            @include font-params(700, 32px, 39px);
+            margin-bottom: 35px;
+        }
+
+        >div {
+            position: relative;
+            margin-bottom: 50px;
+
+            .analogue__wrapper {
+                display: flex;
+                align-items: center;
+
+                .photo__wrapper {
+                    border: 2px solid $link_color;
+                    border-radius: 5px;
+                    padding: 49px 65px;
+                    margin-right: 50px;
+
+                    img {
+                        width: 142px;
+                    }
+                }
+
+                h2 {
+                    @include font-params(600, 28px, 34px);
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    @include font-params(500, 28px, 34px);
+                    margin-bottom: 15px;
+
+                    &.price {
+                        margin-top: 45px;
+                        margin-bottom: 0;
+                        color: #0DA500;
+                    }
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                color: #F98600;
+                @include font-params(500, 28px, 34px);
+
+                &::after {
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    display: inline-block;
+                    background: url('../../../../public/images/accordion-catalog-arrow.svg') no-repeat center;
+                    vertical-align: middle;
+                    margin-left: 15px;
+                }
+
+                &.active {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+
+                }
+            }
+
+            .in-stock {
+                padding-left: 222px;
+                padding-top: 45px;
+
+                &.hidden {
+                    display: none;
+                }
+
+                &.open {
+                    display: flex;
+                    flex-direction: column;
+                    padding-bottom: 50px;
+                }
+
+                h2 {
+                    @include font-params(500, 32px, 39px);
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                    @include font-params(400, 28px, 34px);
+                    margin-bottom: 20px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        >button {
+            background-color: #F98600;
+            border-radius: 5px;
+            color: #fff;
+            width: 363px;
+            height: 63px;
+            margin: 0 auto;
+            @include font-params(500, 28px, 34px);
+        }
+    }
+}
